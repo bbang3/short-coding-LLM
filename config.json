@@ -1,0 +1,27 @@
+{
+    "params": {
+        "baseline": {
+            "top_k": 50,
+            "top_p": 1.0,
+            "max_tokens": 500,
+            "temperature": 0,
+            "repeat_penalty": 1.1,
+            "presence_penalty": 0,
+            "frequency_penalty": 0
+        },
+        "summary": {
+            "top_k": 50,
+            "top_p": 1.0,
+            "max_tokens": 500,
+            "temperature": 0,
+            "system_prompt": "Responses should be written in Python.",
+            "repeat_penalty": 1.1,
+            "presence_penalty": 0,
+            "frequency_penalty": 0        
+        }
+    },
+    "models": {
+        "baseline": "meta/codellama-34b-python:482ba325daab209d121f45a0030f2f3ed942df98b185d41635ab3f19165a3547",
+        "summary": "meta/codellama-34b-instruct:b17fdb44c843000741367ae3d73e2bb710d7428a662238ddebbf4302db2b5422"
+    }
+}
