@@ -35,7 +35,8 @@ def evaluate(
         problemPath:str = utils.HUMAN_EVAL,
         k:Union[int, List[int]] = [1,10,100],
         timeOut:float = 1.0,
-        to_json:bool = False
+        to_json:bool = False,
+        add_error_list:bool = False
 )->Tuple[Dict, List]:
 
     problems = utils.data_loader(path=problemPath, mode="problem")
@@ -59,7 +60,10 @@ def evaluate(
         for pred in as_completed(preds):
             result = pred.result()
             if not result["passed"]:
-                errors.append(result["task_id"])
+                if add_error_list:
+                    errors.append((result["task_id"], result["result"]))
+                else:
+                    errors.append(result["task_id"])  
             results[result["task_id"]].append(result["result"])
 
         print("Calculating the results...")
