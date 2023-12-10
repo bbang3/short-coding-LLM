@@ -3,7 +3,6 @@ from typing import Union, List, Tuple, Dict
 import numpy as np
 import itertools
 from collections import defaultdict
-import tqdm
 
 import utils
 from execution import execution_error_detect
@@ -36,6 +35,7 @@ def evaluate(
         k:Union[int, List[int]] = [1,10,100],
         timeOut:float = 1.0,
         to_json:bool = False,
+        json_name:str = "eval_result",
         add_error_list:bool = False
 )->Tuple[Dict, List]:
 
@@ -51,7 +51,7 @@ def evaluate(
         pass_at_k = defaultdict(float)
 
         print("Finding Error in Samples...")
-        for task_id in tqdm.tqdm(problems.keys()):
+        for task_id in problems.keys():
             args = (task_id, problems[task_id], samples[task_id]["predict_code"], timeOut)
             pred = executor.submit(execution_error_detect, *args)
             preds.append(pred)
@@ -92,7 +92,15 @@ def evaluate(
         print("Complete calculating")
 
         if to_json:
-            pass_at_k["error_ids"] = errors
-            utils.data_writer(pass_at_k, "eval_result")
+            int_error = dict()
+            for head, error in errors:
+                tmp = 1
+                for i in error:
+                    tmp=tmp*10+i
+                int_error[head] = str(tmp)[1:]
+
+            int_error["_number_of_id"] = len(int_error)
+            pass_at_k["error_ids"] = int_error
+            utils.data_writer(pass_at_k, json_name)
 
         return pass_at_k, errors

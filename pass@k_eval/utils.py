@@ -54,4 +54,4 @@ def data_writer(data:Dict, data_name:str = "temp_file"):
     write Dict data as json file
     '''
     with open(data_name+".json", "w") as json_file:
-        json.dump(data, json_file, ensure_ascii=False, indent=" ")
+        json.dump(data, json_file, ensure_ascii=False, indent="\t")
