@@ -14,23 +14,24 @@ def execution_error_detect(_task_id:str, problem:Dict, predict_code:str, time_ou
     '''
 
     def unsafe_excute(result):
-        prompt = problem["prompt"]
+        # pattern = re.compile(r'\b(?:from|import)\b.*\n?')
+        # prompt = str(re.findall(pattern, problem["prompt"]))
         tests = problem["test"].split("\n")
         func_name = problem["func_name"]
-        _pattern = re.compile('def.*?\n', re.DOTALL)
-        _predict_code = re.sub(_pattern, "", predict_code)
+        # _pattern = re.compile('def.*?\n', re.DOTALL)
+        # _predict_code = re.sub(_pattern, "", predict_code)
 
         for test in tests[1:]:
             if test == "":
                 continue
             check_program = (
-                prompt +"\n" +
-                _predict_code + "\n" +
+                # prompt +"\n" +
+                predict_code + "\n" +
                 tests[0] + "\n" +
                 test + "\n" +
                 f"check({func_name})"
             )
-        
+
             try:
                 exec(check_program)
                 result.append(1)

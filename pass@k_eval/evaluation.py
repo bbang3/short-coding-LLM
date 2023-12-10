@@ -81,6 +81,7 @@ def evaluate(
             _correct = correct[indices]
             if _total.size==0 and _correct.size==0:
                 return f"number of all test cases are less then {_k}"
+            print(f"total {_k} in {len(_total)}")
             return estimate_pass_at_k(_total,_correct,_k).mean()
             
         if isinstance(k, int):
@@ -102,5 +103,4 @@ def evaluate(
             int_error["_number_of_id"] = len(int_error)
             pass_at_k["error_ids"] = int_error
             utils.data_writer(pass_at_k, json_name)
-
         return pass_at_k, errors
