@@ -1,5 +1,6 @@
 from typing import Dict
 import threading
+import re
 
 def execution_error_detect(_task_id:str, problem:Dict, predict_code:str, time_out:float)->Dict:
     '''
@@ -16,12 +17,15 @@ def execution_error_detect(_task_id:str, problem:Dict, predict_code:str, time_ou
         prompt = problem["prompt"]
         tests = problem["test"].split("\n")
         func_name = problem["func_name"]
+        _pattern = re.compile('def.*?\n', re.DOTALL)
+        _predict_code = re.sub(_pattern, "", predict_code)
 
         for test in tests[1:]:
             if test == "":
                 continue
             check_program = (
-                prompt + predict_code + "\n" +
+                prompt +"\n" +
+                _predict_code + "\n" +
                 tests[0] + "\n" +
                 test + "\n" +
                 f"check({func_name})"
@@ -44,7 +48,5 @@ def execution_error_detect(_task_id:str, problem:Dict, predict_code:str, time_ou
         _result.append(0)
 
     _passed = 1 if all(r == 1 for r in _result) else 0
-    return dict(task_id=_task_id, passed = _passed, result=_result)
 
-class TimeoutException(Exception):
-    ...
+    return dict(task_id=_task_id, passed = _passed, result=_result)
