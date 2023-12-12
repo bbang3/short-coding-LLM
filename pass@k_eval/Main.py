@@ -2,7 +2,6 @@ import evaluation
 import os
 
 if __name__=="__main__":
-    # evaluation.evaluate(to_json=True, add_error_list=True)
     in_dir = "predictions"
     out_dir = "evaluations"
 
