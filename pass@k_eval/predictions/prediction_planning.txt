@@ -1,0 +1,1566 @@
+HumanEval/0
+
+1. Sort the list of numbers in ascending order.
+2. Iterate through the sorted list and check if any two adjacent elements are closer to each other than the given threshold.
+3. If two adjacent elements meet the condition, return True.
+4. If no two adjacent elements meet the condition, return False.
+
+--------------------------------------------------
+HumanEval/1
+
+1. Define a function `separate_paren_groups` that takes a string argument `paren_string`.
+2. Initialize an empty list `result` to store the separated groups.
+3. Use a loop to iterate over each character in `paren_string`.
+4. If the current character is an opening parenthesis, start a new group and add it to `result`.
+5. If the current character is a closing parenthesis, end the current group.
+6. If the current character is not a parenthesis, ignore it.
+7. Return `result` at the end of the function.
+
+--------------------------------------------------
+HumanEval/2
+
+1. Start by defining the function with its name and parameters.
+2. Check if the input number is positive. If it's not, raise an error.
+3. Use the `math.modf` function to decompose the number into its integer part and decimal part.
+4. Return the decimal part of the number.
+5. Test the function with some examples to make sure it works correctly.
+
+--------------------------------------------------
+HumanEval/3
+
+1. Initialize a variable called `balance` to 0. This will keep track of the current balance of the bank account.
+2. Loop through each operation in the `operations` list.
+3. For each operation, check if it is a deposit (i.e., a positive number) or a withdrawal (i.e., a negative number).
+4. If the operation is a deposit, add its value to the current balance. If it's a withdrawal, subtract its absolute value from the current balance.
+5. After each operation, check if the new balance is below zero. If it is, return `True`.
+6. If the loop completes without finding a negative balance, return `False`.
+
+--------------------------------------------------
+HumanEval/4
+
+1. Calculate the mean of the input list of numbers.
+2. Subtract the mean from each element in the list to get the absolute differences.
+3. Calculate the average of the absolute differences.
+4. Return the average as the Mean Absolute Deviation.
+
+--------------------------------------------------
+HumanEval/5
+
+1. Define a new list to store the output of the function.
+2. Iterate over the input list `numbers`.
+3. For each element in the input list, add it to the output list.
+4. If the current element is not the last element in the input list, add the delimeter value after it.
+5. Return the output list.
+
+--------------------------------------------------
+HumanEval/6
+
+1. Tokenize the input string into individual parentheses and spaces using the `split()` method.
+2. Create an empty list to store the maximum nesting levels of each group.
+3. Iterate over each token, keeping track of the current nesting level and the maximum nesting level for each group.
+4. If a closing parenthesis is encountered, decrement the nesting level.
+5. If a space is encountered, add the current nesting level to the list of maximum nesting levels.
+6. Return the list of maximum nesting levels.
+
+--------------------------------------------------
+HumanEval/7
+
+1. Define the input parameters for the function, including the list of strings to be filtered and the substring to search for.
+2. Initialize an empty list to store the filtered results.
+3. Loop through each string in the input list.
+4. For each string, check if it contains the substring using the `in` operator. If it does, add it to the filtered results list.
+5. Return the filtered results list.
+6. Test the function with sample inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/8
+
+1. Define the function `sum_product` with two parameters: `numbers`, which is a list of integers, and `result`, which is a tuple consisting of the sum and product of all the integers in the list.
+2. Initialize the `result` tuple to (0, 1) if the input list is empty.
+3. If the input list is not empty, iterate over each integer in the list and calculate its sum and product with the previous values.
+4. Return the final `result` tuple consisting of the sum and product of all integers in the list.
+5. Test the function with different inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/9
+
+1. Initialize an empty list to store the rolling maximum values.
+2. Loop through each element in the input list of integers.
+3. For each element, compare it to the current rolling maximum value. If the element is greater than the current rolling maximum, update the rolling maximum value with the element's value.
+4. Add the updated rolling maximum value to the output list.
+5. Repeat steps 2-4 for each element in the input list until the end of the list is reached.
+6. Return the output list of rolling maximum values.
+
+--------------------------------------------------
+HumanEval/10
+
+1. Define a function called `make_palindrome` that takes a string argument called `string`.
+2. Inside the function, define two variables: `prefix` and `suffix`. Set `prefix` to an empty string and `suffix` to `string`.
+3. Loop through each character in `string`, starting from the first character. For each character, check if it is equal to the last character of `string`. If they are not equal, break out of the loop.
+4. If the loop completes successfully (i.e., all characters in `string` are equal), set `prefix` to `string` and `suffix` to an empty string.
+5. Return the concatenation of `prefix` and `suffix`.
+6. Test the function with some sample inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/11
+
+1. Define the input parameters `a` and `b` as strings consisting only of 1s and 0s.
+2. Initialize an empty string `result` to store the result of the binary XOR operation.
+3. Loop through each character in `a` and `b`, performing a bitwise XOR operation on them. If the resulting bit is 1, add it to the `result` string.
+4. Return the `result` string as the final output.
+5. Test the function with sample inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/12
+
+1. Check if the input list is empty. If it is, return None.
+2. Initialize a variable to store the longest string found so far. Set this variable to an empty string.
+3. Loop through each string in the input list.
+4. For each string, check its length. If it's longer than the current longest string, update the longest string variable with the new string.
+5. After looping through all strings, return the longest string found. If no strings were found, return None.
+
+--------------------------------------------------
+HumanEval/13
+
+1. Define the function with two parameters `a` and `b`, both of type `int`. The function should return an integer value.
+2. Initialize a variable `gcd` to 0. This will be used to store the greatest common divisor as we calculate it.
+3. Check if either `a` or `b` is 0. If so, set `gcd` to the other number and return it. This is because the GCD of a number and 0 is that number itself.
+4. Set `gcd` to the smaller of `a` and `b`. This is the initial guess for the GCD.
+5. Loop while `gcd` is not 1:
+a. Check if `a` is divisible by `gcd`. If not, set `gcd` to `gcd - 1` and repeat from step 5a.
+b. Check if `b` is divisible by `gcd`. If not, set `gcd` to `gcd - 1` and repeat from step 5b.
+c. If both `a` and `b` are divisible by `gcd`, return `gcd` as the greatest common divisor.
+6. Return `g
+
+--------------------------------------------------
+HumanEval/14
+
+1. Define a new list to store the prefixes.
+2. Loop through each character in the input string.
+3. For each character, add it to the current prefix and append the updated prefix to the list of prefixes.
+4. Return the list of prefixes.
+
+--------------------------------------------------
+HumanEval/15
+
+1. Define a variable `result` to store the final result of the function.
+2. Initialize `result` with an empty string.
+3. Use a loop to iterate from 0 to `n`, inclusive.
+4. Inside the loop, convert each number to a string and append it to `result`.
+5. After the loop, return `result`.
+1. Define `result` as an empty string.
+2. Initialize a variable `i` to 0.
+3. Use a while loop to iterate from 0 to `n`, inclusive.
+4. Inside the loop, convert `i` to a string using the `str()` function and append it to `result`.
+5. After the loop, return `result`.
+
+--------------------------------------------------
+HumanEval/16
+
+1. Define a new set called `unique_chars`.
+2. Iterate over each character in the input string using a for loop.
+3. For each character, check if it is already in the `unique_chars` set. If it is not, add it to the set.
+4. Return the length of the `unique_chars` set as the result of the function.
+
+--------------------------------------------------
+HumanEval/17
+
+1. Define a dictionary to map each musical note symbol (e.g. 'o', 'o|', '.|') to its corresponding beat length (e.g. 4, 2, 1).
+2. Split the input string into individual notes using the space character as the delimiter.
+3. Iterate over each note in the list and use the dictionary to look up its corresponding beat length.
+4. Append the beat length to a new list for each note.
+5. Return the new list of beat lengths.
+
+--------------------------------------------------
+HumanEval/18
+
+1. Initialize a variable `count` to 0. This will keep track of the number of times the substring appears in the original string.
+2. Loop through each character in the original string.
+3. Check if the current character is equal to the first character of the substring. If it is, then we need to check if the remaining characters in the substring match the remaining characters in the original string.
+4. If the remaining characters match, then increment `count` by 1.
+5. If the remaining characters do not match, then move on to the next character in the original string and repeat steps 3-4.
+6. Once we have checked all the characters in the original string, return `count`. This will be the number of times the substring appears in the original string.
+
+--------------------------------------------------
+HumanEval/19
+
+1. Tokenize the input string using spaces as delimiters.
+2. Convert each token to its corresponding numerical value (e.g., "three" becomes 3).
+3. Sort the list of numerical values in ascending order.
+4. Convert each sorted numerical value back to its corresponding token (e.g., 3 becomes "three").
+5. Join the sorted tokens into a single string using spaces as delimiters.
+6. Return the sorted string.
+
+--------------------------------------------------
+HumanEval/20
+
+1. Sort the input list of numbers in ascending order.
+2. Initialize two variables, `min_diff` and `closest_pair`, to keep track of the minimum difference between two elements and the closest pair of elements, respectively.
+3. Iterate over the sorted list of numbers, starting from the second element (index 1).
+4. For each element, calculate the difference between it and its previous element (using the index of the current element minus 1).
+5. If the difference is less than `min_diff`, update `min_diff` with the new difference and set `closest_pair` to the pair of elements.
+6. Return `closest_pair`.
+1. Sort the input list of numbers in ascending order using the built-in `sorted()` function.
+2. Initialize two variables, `min_diff` and `closest_pair`, to keep track of the minimum difference between two elements and the closest pair of elements, respectively. Set `min_diff` to a large value (e.g., `float('inf')`) and `closest_pair` to an empty tuple (`()`).
+3. Iterate over the sorted list of numbers
+
+--------------------------------------------------
+HumanEval/21
+
+1. Sort the input list of numbers in ascending order.
+2. Find the minimum and maximum values in the sorted list.
+3. Calculate the range of the data (max - min).
+4. Create a new list to store the rescaled values.
+5. Iterate over the original list of numbers and for each number, calculate its rescaled value using the following formula:
+6. Add the rescaled value to the new list.
+7. Return the new list of rescaled values.
+
+--------------------------------------------------
+HumanEval/22
+
+1. Define the function `filter_integers` with two parameters: `values`, which is a list of any Python values, and `result`, which is an empty list that will be used to store the filtered integers.
+2. Use a for loop to iterate over each element in the `values` list.
+3. Inside the for loop, use an if statement to check if the current element is an integer. If it is, add it to the `result` list.
+4. After the for loop completes, return the `result` list.
+5. Test the function with two examples: one with a list of integers and strings, and another with a list of integers and other Python values.
+
+--------------------------------------------------
+HumanEval/23
+
+1. Define the function `strlen` with a single parameter `string`, which is of type `str`.
+2. Use the built-in `len` function to get the length of the input string.
+3. Return the length of the input string as an integer value.
+4. Test the function with two examples: an empty string and a non-empty string.
+5. Use the `doctest` module to run the tests and verify that the function behaves correctly.
+
+--------------------------------------------------
+HumanEval/24
+
+1. Start by initializing a variable `max_divisor` to 1, which is the smallest possible divisor of any number.
+2. Loop through all numbers from 2 to n/2, and check if each number is a divisor of n using the modulo operator (%). If it is, update `max_divisor` with the current number if it's larger than the previous value of `max_divisor`.
+3. After the loop completes, return `max_divisor` as the largest divisor of n.
+
+--------------------------------------------------
+HumanEval/25
+
+1. Start by defining the function and its parameters, including the input integer `n`.
+2. Initialize an empty list to store the prime factors of `n`.
+3. Use a loop to iterate through all numbers from 2 to the square root of `n`, inclusive. For each number, check if it is a factor of `n` by dividing `n` by that number and checking if the result is an integer. If it is a factor, add it to the list of prime factors.
+4. After the loop completes, check if the product of all the prime factors in the list is equal to `n`. If it is not, then `n` is not a perfect square and the function should return an empty list.
+5. Otherwise, return the list of prime factors in the order from smallest to largest.
+6. Test the function with different inputs to ensure that it works correctly for all cases.
+
+--------------------------------------------------
+HumanEval/26
+
+1. Create an empty list to store the unique elements from the input list.
+2. Iterate over the input list and check if each element is already in the output list. If it is, skip it. If it's not, add it to the output list.
+3. Return the output list.
+1. Create an empty list called `unique_elements` to store the unique elements from the input list.
+2. Iterate over the input list using a for loop. For each element in the input list, check if it is already in the `unique_elements` list by using the `in` operator. If it is not in the `unique_elements` list, add it to the end of the list.
+3. After iterating over all elements in the input list, return the `unique_elements` list as the result of the function.
+
+--------------------------------------------------
+HumanEval/27
+
+1. Define a new string variable called `result` and set it to an empty string.
+2. Loop through each character in the input string.
+3. For each character, check if it is uppercase or lowercase using the `isupper()` and `islower()` methods.
+4. If the character is uppercase, convert it to lowercase using the `lower()` method. If it is lowercase, convert it to uppercase using the `upper()` method.
+5. Add the converted character to the `result` string.
+6. Return the `result` string.
+
+--------------------------------------------------
+HumanEval/28
+
+1. Define the input and output types of the function. In this case, the input type is a list of strings, and the output type is a single string.
+2. Use a loop to iterate over each element in the input list. For each element, concatenate it with the previous element (if there is one) using the `+` operator.
+3. Return the final concatenated string as the output of the function.
+4. Test the function with some sample inputs and outputs to ensure that it works correctly.
+
+--------------------------------------------------
+HumanEval/29
+
+1. Define the input parameters for the function, including the list of strings to be filtered and the prefix to filter by.
+2. Initialize an empty list to store the filtered strings.
+3. Loop through each string in the input list.
+4. Check if the current string starts with the given prefix using the `startswith()` method. If it does, add it to the filtered list.
+5. Return the filtered list.
+6. Test the function with sample inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/30
+
+1. Define a new list to store the positive numbers from the input list.
+2. Iterate over the elements of the input list using a for loop.
+3. For each element, check if it is greater than or equal to zero. If it is, add it to the new list.
+4. Return the new list containing only the positive numbers.
+
+--------------------------------------------------
+HumanEval/31
+
+1. Define a function called `is_prime` that takes an integer argument `n`.
+2. Initialize a variable `i` to 2, which is the smallest prime number.
+3. Loop through all numbers from `i` to `n-1`, and check if any of them divide `n` exactly. If they do, return `False`.
+4. If no such number is found, return `True`.
+5. Test the function with some examples to make sure it works correctly.
+
+--------------------------------------------------
+HumanEval/32
+
+1. Check if the input list `xs` has an even number of coefficients and that the largest non-zero coefficient guarantees a solution. If not, raise an error.
+2. Initialize a variable `x` to a random value within the range of possible solutions (e.g., between -10 and 10).
+3. Evaluate the polynomial at `x` using the `poly` function.
+4. Check if the result is close enough to zero (e.g., within a tolerance of 0.001). If so, return `x`.
+5. Otherwise, calculate the derivative of the polynomial at `x` and use it to update `x` using the Newton-Raphson method.
+6. Repeat steps 3-5 until the result is close enough to zero or a maximum number of iterations has been reached.
+7. If no solution was found after the maximum number of iterations, raise an error. Otherwise, return the solution `x`.
+
+--------------------------------------------------
+HumanEval/33
+
+1. Define a new list `l'` that is initialized to an empty list.
+2. Iterate over the elements of the input list `l`.
+3. For each element, check if its index is divisible by 3. If it is not, add the element to `l'`.
+4. If the element's index is divisible by 3, sort the remaining elements of `l` and add them to `l'` in sorted order.
+5. Return `l'`.
+
+--------------------------------------------------
+HumanEval/34
+
+1. Sort the input list using the built-in `sorted()` function.
+2. Create an empty set to store the unique elements.
+3. Iterate over the sorted list and add each element to the set if it's not already present.
+4. Return the sorted unique elements from the set.
+1. Sort the input list using the built-in `sorted()` function. This will ensure that all duplicate elements are next to each other in the list.
+2. Create an empty set to store the unique elements. We'll use this set to keep track of which elements we've already seen and which ones are new.
+3. Iterate over the sorted list and add each element to the set if it's not already present. We can check if an element is already in the set by using the `in` operator. If the element is not in the set, we'll add it. If it is, we'll skip it.
+4. Return the sorted unique elements from the set. We can use the `sorted()` function again to sort the elements in the set and return them in a list.
+
+--------------------------------------------------
+HumanEval/35
+
+1. Initialize a variable `max_value` to the first element of the input list `l`.
+2. Iterate over the remaining elements of the list, starting from the second element.
+3. For each element, compare it with the current value of `max_value`. If the element is greater than `max_value`, update `max_value` to that element.
+4. After iterating over all elements of the list, return `max_value` as the maximum element in the list.
+
+--------------------------------------------------
+HumanEval/36
+
+1. Define a variable `count` and set it to 0. This will keep track of the number of times the digit 7 appears in the integers less than `n`.
+2. Use a loop to iterate over all integers less than `n`. For each integer, check if it is divisible by 11 or 13. If it is not, move on to the next integer.
+3. If an integer is divisible by 11 or 13, convert it to a string and check if it contains the digit 7. If it does, increment `count` by 1.
+4. After iterating over all integers less than `n`, return `count`. This will be the number of times the digit 7 appears in the integers less than `n` which are divisible by 11 or 13.
+
+--------------------------------------------------
+HumanEval/37
+
+1. Define a new list `l'` that is identical to the input list `l`, but with its even indicies sorted.
+2. Iterate through the elements of `l` and compare their values at the even indicies to the corresponding values in `l'`.
+3. If an element in `l` has a value that is less than the corresponding value in `l'`, swap the two elements.
+4. Repeat step 3 until no more swaps are needed, indicating that the list is sorted.
+5. Return the sorted list `l'`.
+
+--------------------------------------------------
+HumanEval/38
+
+1. Split the input string into groups of three characters each. If the length of the string is not divisible by 3, then add two empty strings at the end to make the last group have three elements.
+2. For each group, cycle the elements in the group so that the first element becomes the second, the second element becomes the third, and the third element becomes the first. If the group has fewer than three elements, leave it unchanged.
+3. Join all the groups together to form the encoded string.
+1. Take as input a string that was encoded with the `encode_cyclic` function.
+2. Split the input string into groups of three characters each, just like in the `encode_cyclic` function.
+3. For each group, cycle the elements in the group so that the first element becomes the third, the second element becomes the first, and the third element becomes the second. If the group has fewer than three elements, leave it unchanged.
+4. Join all the groups together to form the decoded string.
+
+--------------------------------------------------
+HumanEval/39
+
+1. Define a function called `prime_fib` that takes an integer argument `n`.
+2. Initialize two variables, `a` and `b`, to 0 and 1, respectively. These variables will be used to keep track of the Fibonacci sequence.
+3. Use a loop to iterate from 0 to `n-1`. In each iteration, calculate the next number in the Fibonacci sequence by adding `a` and `b`, then update `a` and `b` with their new values.
+4. Check if the current number in the Fibonacci sequence is prime. If it is not prime, continue to the next iteration.
+5. If the current number is prime, return it as the result of the function.
+6. If the loop completes without finding a prime number, raise an error indicating that no prime Fibonacci number was found for the given input `n`.
+
+--------------------------------------------------
+HumanEval/40
+
+1. Define a function called `triples_sum_to_zero` that takes a list of integers as input.
+2. Initialize a variable called `found_triple` to `False`. This will be used to keep track of whether we have found a triple that sums to zero.
+3. Use a loop to iterate over the elements in the input list. For each element, we will check if there are two other elements in the list that sum to the negative of the current element. If we find such a pair, we set `found_triple` to `True`.
+4. After iterating over all elements in the list, return `found_triple`. This will be `True` if we found a triple that sums to zero, and `False` otherwise.
+5. Test the function with some sample inputs to make sure it is working correctly.
+
+--------------------------------------------------
+HumanEval/41
+
+1. Define two sets of cars, one driving left to right and the other driving right to left.
+2. Initialize a variable to keep track of the number of collisions.
+3. For each car in the left-to-right set, check if it has collided with any car in the right-to-left set.
+4. If there is a collision, increment the collision counter by 1.
+5. Repeat step 3 for all cars in both sets.
+6. Return the value of the collision counter as the output of the function.
+
+--------------------------------------------------
+HumanEval/42
+
+1. Define a new list to store the incremented values.
+2. Iterate over the input list and add 1 to each element.
+3. Append the incremented value to the new list.
+4. Return the new list.
+
+--------------------------------------------------
+HumanEval/43
+
+1. Initialize an empty set to store the unique elements of the input list.
+2. Iterate over the input list and check if each element is already in the set. If it is not, add it to the set.
+3. For each element in the set, check if its negative exists in the set. If it does, return True.
+4. If no negative exists, return False.
+1. Initialize an empty set `unique_elements` to store the unique elements of the input list.
+2. Iterate over the input list using a for loop and check if each element `x` is already in the set `unique_elements`. If it is not, add it to the set using `unique_elements.add(x)`.
+3. For each element `x` in the set `unique_elements`, check if its negative `-x` exists in the set using `if -x in unique_elements:`. If it does, return True.
+4. If no negative exists, return False.
+
+--------------------------------------------------
+HumanEval/44
+
+1. Check if the input number x and base are valid. If not, raise an error.
+2. Convert the input number x to a string.
+3. Initialize an empty list to store the digits of the converted number.
+4. Loop through each digit of the converted number and perform the following steps:
+a. Divide the digit by the base using integer division.
+b. Get the remainder of the division.
+c. Add the remainder to the list of digits.
+5. Join the list of digits into a string and return it as the final result.
+
+--------------------------------------------------
+HumanEval/45
+
+1. Define the function `triangle_area` with two parameters: `a` and `h`.
+2. Calculate the area of the triangle using the formula: `area = (a * h) / 2`.
+3. Return the calculated area as a float value.
+4. Test the function with the given example input and output to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/46
+
+1. Define a dictionary to store the values of the Fib4 sequence for each input `n`. This will help avoid redundant calculations and improve efficiency.
+2. Initialize the dictionary with the base cases: `fib4_dict[0] = 0`, `fib4_dict[1] = 0`, `fib4_dict[2] = 2`, and `fib4_dict[3] = 0`.
+3. Define a function `fib4` that takes an integer input `n` and returns the corresponding value in the Fib4 sequence.
+4. Use a loop to calculate the values of the Fib4 sequence for each input `n`, starting from `n=4`. The loop should iterate until it reaches the desired input `n`.
+5. Inside the loop, use the formula `fib4(n) = fib4(n-1) + fib4(n-2) + fib4(n-3) + fib4(n-4)` to calculate the current value of the Fib4 sequence for each input `n`.
+6. Use the dictionary to store and retrieve the values of the Fib4 sequence, so that redundant calculations are avoided.
+7. Return the final value of the Fib4 sequence for the given input `
+
+--------------------------------------------------
+HumanEval/47
+
+1. Sort the input list `l` in ascending order.
+2. If the length of the sorted list is odd, return the middle element of the list.
+3. If the length of the sorted list is even, return the average of the two middle elements of the list.
+4. Handle edge cases such as an empty input list or a list with only one element.
+
+--------------------------------------------------
+HumanEval/48
+
+1. Define the function `is_palindrome` with a single parameter `text`, which is a string.
+2. Check if the length of the input string is less than or equal to 1. If it is, return `True`. This is because any string with a length of 0 or 1 is considered a palindrome.
+3. Initialize two variables, `i` and `j`, both set to 0. These variables will be used as indices for the input string.
+4. Loop through the input string from both ends until `i` and `j` meet in the middle or exceed the length of the string.
+5. At each iteration, check if the character at index `i` is equal to the character at index `j`. If they are not equal, return `False`.
+6. Increment `i` by 1 and decrement `j` by 1.
+7. If the loop completes successfully, return `True`.
+8. Otherwise, return `False`.
+
+--------------------------------------------------
+HumanEval/49
+
+1. Define the input parameters `n` and `p` as integers.
+2. Initialize a variable `result` to 1.
+3. Use a loop to repeatedly multiply `result` by 2, `n` times.
+4. After the loop, use the modulo operator (`%`) to compute the result of `result % p`.
+5. Return the final result.
+
+--------------------------------------------------
+HumanEval/50
+
+1. Define a variable `encoded` and initialize it to an empty string.
+2. Loop through each character in the input string `s`.
+3. For each character, calculate its ASCII code using the `ord()` function.
+4. Add 5 to the ASCII code to shift the character by 5 positions in the alphabet.
+5. Use the modulo operator (`%`) to wrap around to the beginning of the alphabet if necessary (i.e., if the shifted ASCII code is greater than the ASCII code for 'z').
+6. Convert the shifted ASCII code back into a character using the `chr()` function.
+7. Append the shifted character to the `encoded` string.
+8. Return the encoded string.
+1. Define a variable `decoded` and initialize it to an empty string.
+2. Loop through each character in the input string `s`.
+3. For each character, calculate its ASCII code using the `ord()` function.
+4. Subtract 5 from the ASCII code to shift the character by -5 positions in the alphabet.
+5. Use the modulo operator (`%`) to wrap around to the beginning of the alphabet if necessary (i.e., if
+
+--------------------------------------------------
+HumanEval/51
+
+1. Define the function `remove_vowels` with a single parameter `text`.
+2. Initialize an empty string `result` to store the result of removing vowels from `text`.
+3. Use a loop to iterate over each character in `text`.
+4. Check if the current character is a vowel (i.e., 'a', 'e', 'i', 'o', or 'u'). If it is, skip it and move on to the next character.
+5. If the current character is not a vowel, add it to `result`.
+6. Return `result` at the end of the function.
+7. Test the function with various inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/52
+
+1. Define the input parameters `l` and `t`.
+2. Initialize a variable `result` to `True`.
+3. Loop through each element in the list `l`.
+4. Check if the current element is greater than or equal to `t`. If it is, set `result` to `False` and break out of the loop.
+5. Return `result`.
+
+--------------------------------------------------
+HumanEval/53
+
+1. Define the function `add` with two parameters `x` and `y`, both of type `int`.
+2. In the docstring, describe the purpose of the function and provide examples of how it should work.
+3. Inside the function body, use the `+` operator to add `x` and `y` together.
+4. Return the result of the addition.
+5. Test the function with the provided examples to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/54
+
+1. Define two variables, `s0` and `s1`, to store the two input strings.
+2. Convert both strings to lowercase using the `.lower()` method.
+3. Create an empty set, `chars`, to store the unique characters of the first string.
+4. Iterate through each character in the first string and add it to the `chars` set if it's not already present.
+5. Check if the second string contains all the characters in the `chars` set using the `.issubset()` method. If it does, return `True`. Otherwise, return `False`.
+6. If the first string is empty or the second string is empty, return `False`.
+7. If both strings are non-empty and have the same length, return `True`.
+8. If both strings are non-empty and have different lengths, return `False`.
+
+--------------------------------------------------
+HumanEval/55
+
+1. Define the function `fib` with one parameter `n`, which is an integer.
+2. Check if `n` is less than or equal to 0. If it is, return 0.
+3. Initialize two variables `a` and `b` to 0 and 1, respectively. These will be used to store the previous two Fibonacci numbers.
+4. Loop from 2 to `n`:
+5. Return the final value of `b`, which will be the `n`-th Fibonacci number.
+
+--------------------------------------------------
+HumanEval/56
+
+1. Initialize a stack to keep track of the opening brackets.
+2. Iterate through each character in the input string.
+3. If the current character is an opening bracket ("<"), push it onto the stack.
+4. If the current character is a closing bracket (">"), pop the top element from the stack. If the stack is empty, return False.
+5. After iterating through the entire input string, if the stack is not empty, return False. Otherwise, return True.
+
+--------------------------------------------------
+HumanEval/57
+
+1. Check if the input list is empty or has only one element. If so, return True.
+2. Initialize two variables, `increasing` and `decreasing`, to False. These variables will keep track of whether the elements in the list are monotonically increasing or decreasing.
+3. Iterate through the input list, starting from the second element. For each element, check if it is greater than or equal to the previous element. If so, set `increasing` to True. Otherwise, set `decreasing` to True.
+4. After iterating through the entire list, return True if either `increasing` or `decreasing` is True. Otherwise, return False.
+1. Check if the input list is empty or has only one element. If so, return True.
+2. Initialize two variables, `increasing` and `decreasing`, to False. These variables will keep track of whether the elements in the list are monotonically increasing or decreasing.
+
+--------------------------------------------------
+HumanEval/58
+
+1. Define the function "common" with two parameters "l1" and "l2", both of type list.
+2. Create an empty set "result" to store the common elements.
+3. Use a loop to iterate over the elements in "l1".
+4. For each element, check if it is also present in "l2" using the "in" operator. If it is, add it to "result".
+5. Repeat step 3 for "l2".
+6. Return the sorted and unique elements of "result".
+7. Test the function with the given examples.
+
+--------------------------------------------------
+HumanEval/59
+
+1. Start by initializing a variable `max_factor` to 1, which is the smallest prime factor of any number.
+2. Loop through all numbers from 2 to the square root of n, and check if they are factors of n. If a factor is found, update `max_factor` with the largest factor so far.
+3. After the loop completes, return `max_factor` as the largest prime factor of n.
+
+--------------------------------------------------
+HumanEval/60
+
+1. Define the function `sum_to_n` with one parameter `n`, which is an integer.
+2. Initialize a variable `result` to 0.
+3. Use a loop to iterate from 1 to `n`.
+4. In each iteration, add the current number to `result`.
+5. Return `result`.
+6. Test the function with different inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/61
+
+1. Initialize a stack to keep track of the opening brackets.
+2. Iterate through each character in the input string.
+3. If the current character is an opening bracket, push it onto the stack.
+4. If the current character is a closing bracket, pop the top element from the stack and compare it to the current character. If they match, continue to the next character. If they don't match, return False.
+5. After iterating through the entire input string, if the stack is empty, return True. Otherwise, return False.
+1. Initialize an empty stack called `bracket_stack`.
+2. Iterate through each character in the input string using a for loop.
+3. If the current character is an opening bracket (i.e., "("), push it onto the `bracket_stack`.
+4. If the current character is a closing bracket (i.e., ")"), pop the top element from the `bracket_stack` and compare it to the current character. If they match, continue to the next character. If they don't match, return False.
+5. After iterating through the entire input string, if the `bracket_stack` is empty, return
+
+--------------------------------------------------
+HumanEval/62
+
+1. Define a new list to store the coefficients of the derivative polynomial.
+2. Iterate over the input list `xs`, starting from the second element (index 1).
+3. For each element, multiply it by its index and add it to the corresponding element in the output list.
+4. Return the output list.
+
+--------------------------------------------------
+HumanEval/63
+
+1. Define the function with the appropriate parameters and return type.
+2. Check if the input is valid (i.e., non-negative). If it's not, raise an exception.
+3. Initialize the first three elements of the sequence to 0, 0, and 1.
+4. Use a loop to calculate the nth element of the sequence by adding the previous three elements together.
+5. Return the calculated value.
+6. Test the function with the given examples to ensure it's working correctly.
+
+--------------------------------------------------
+HumanEval/64
+
+1. Define a new function called `vowels_count` that takes a single string argument representing a word.
+2. Initialize a variable called `vowel_count` to 0. This will keep track of the number of vowels in the input word.
+3. Use a loop to iterate over each character in the input word.
+4. Inside the loop, check if the current character is a vowel (i.e., 'a', 'e', 'i', 'o', or 'u'). If it is, increment `vowel_count` by 1.
+5. If the current character is 'y' and it is at the end of the word, check if the previous character is a vowel. If it is not, do not count it as a vowel.
+6. After the loop finishes, return `vowel_count` as the final result.
+
+--------------------------------------------------
+HumanEval/65
+
+1. Define the function `circular_shift` with two parameters: `x`, an integer, and `shift`, an integer representing the number of digits to shift.
+2. Convert the integer `x` to a string using the built-in `str()` function.
+3. Get the length of the string using the built-in `len()` function.
+4. If `shift` is greater than the length of the string, return the string reversed using the built-in `reversed()` function.
+5. Otherwise, use slicing to extract the last `shift` digits from the string and concatenate them with the first `len(x) - shift` digits.
+6. Return the resulting string.
+
+--------------------------------------------------
+HumanEval/66
+
+1. Define a variable `sum` and set it to 0. This will be used to store the sum of the uppercase characters' ASCII codes.
+2. Loop through each character in the input string.
+3. Check if the current character is an uppercase letter by using the `isupper()` method. If it is, add its ASCII code to the `sum` variable.
+4. After looping through all characters, return the value of `sum`.
+5. Test the function with the provided examples to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/67
+
+1. Define three variables: `apples`, `oranges`, and `mangoes`.
+2. Use string manipulation functions (such as `split()`) to extract the number of apples, oranges, and mangoes from the input string.
+3. Convert the extracted numbers to integers using the `int()` function.
+4. Calculate the total number of fruits in the basket by adding up the numbers of apples, oranges, and mangoes.
+5. Compare the total number of fruits with the given integer. If the total number is greater than the given integer, return 0. Otherwise, return the difference between the two numbers.
+
+--------------------------------------------------
+HumanEval/68
+
+
+
+--------------------------------------------------
+HumanEval/69
+
+1. Sort the input list in descending order. This will ensure that we can easily identify the greatest integer that meets our criteria.
+2. Iterate through the sorted list and keep track of the frequency of each integer. We can use a dictionary to store the frequency of each integer, with the key being the integer itself and the value being its frequency.
+3. As we iterate through the list, check if the current integer has a frequency greater than or equal to its own value. If it does, return that integer as our result.
+4. If no such integer is found, return -1.
+
+--------------------------------------------------
+HumanEval/70
+
+1. Check if the input list is empty. If it is, return an empty list.
+2. Find the minimum and maximum values in the list using the `min()` and `max()` functions.
+3. Create a new list with the minimum value as the first element, followed by the maximum value.
+4. Remove the minimum and maximum values from the original list.
+5. Repeat steps 2-4 until the original list is empty.
+6. Return the sorted list.
+
+--------------------------------------------------
+HumanEval/71
+
+1. Start by defining the function and its parameters: `def triangle_area(a, b, c):`
+2. Check if the three sides form a valid triangle by checking if the sum of any two sides is greater than the third side. If not, return -1.
+3. Calculate the semi-perimeter of the triangle using the formula: `s = (a + b + c) / 2`
+4. Calculate the area of the triangle using the formula: `area = sqrt(s * (s - a) * (s - b) * (s - c))`
+5. Return the area of the triangle rounded to 2 decimal points.
+6. Test the function with different inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/72
+
+1. Check if the input list q is a palindromic list. If not, return False.
+2. Calculate the sum of the elements in the list q.
+3. Compare the sum to the maximum possible weight w. If the sum is greater than or equal to w, return False.
+4. Return True if the input list q is balanced and the sum of its elements is less than or equal to the maximum possible weight w.
+
+--------------------------------------------------
+HumanEval/73
+
+1. Define a variable `min_changes` and initialize it to 0. This will keep track of the minimum number of changes needed to make the array palindromic.
+2. Check if the length of the input array is less than or equal to 1. If so, return `min_changes` as there are no elements that need to be changed.
+3. Define two variables, `left` and `right`, and initialize them to 0 and `len(arr) - 1`, respectively. These will keep track of the left and right indices of the array.
+4. Loop through the array starting from the left index and ending at the right index. For each iteration, check if the element at the current index is equal to the element at the mirrored index (i.e., the element at `len(arr) - 1 - current_index`). If they are not equal, increment `min_changes` by 1.
+5. After the loop, return `min_changes`.
+
+--------------------------------------------------
+HumanEval/74
+
+1. Define two variables, `lst1` and `lst2`, to store the input lists of strings.
+2. Initialize a variable, `total_chars1`, to 0 to store the total number of characters in `lst1`.
+3. Loop through each string in `lst1` and add the length of each string to `total_chars1`.
+4. Initialize a variable, `total_chars2`, to 0 to store the total number of characters in `lst2`.
+5. Loop through each string in `lst2` and add the length of each string to `total_chars2`.
+6. Compare `total_chars1` and `total_chars2`. If `total_chars1` is less than or equal to `total_chars2`, return `lst1`. Otherwise, return `lst2`.
+7. If the two lists have the same number of characters, return `lst1`.
+
+--------------------------------------------------
+HumanEval/75
+
+1. Check if the given number (a) is less than or equal to 100. If it's not, return False.
+2. Initialize three variables, prime1, prime2, and prime3, to 0.
+3. Loop through all numbers from 2 to the square root of a, and check if they are prime. If a number is prime, assign it to prime1.
+4. Loop through all numbers from 2 to the square root of (a/prime1), and check if they are prime. If a number is prime, assign it to prime2.
+5. Check if (a/prime1)/prime2 is an integer. If it's not, return False.
+6. Return True.
+
+--------------------------------------------------
+HumanEval/76
+
+1. Check if x is equal to n**int. If it is, return true.
+2. If x is not equal to n**int, check if x is equal to n**float. If it is, return false.
+3. If x is not equal to n**float, check if x is equal to n**complex. If it is, return false.
+4. If x is not equal to n**complex, return true.
+
+--------------------------------------------------
+HumanEval/77
+
+1. Start by defining the function and its parameters. In this case, the function is called "iscube" and it takes one parameter called "a".
+2. Next, we need to determine if the input integer "a" is a cube of some other integer. To do this, we can use the fact that the cube of an integer "n" is equal to "n^3". So, we can check if "a" is equal to "n^3" for any integer "n".
+3. We can start by checking if "a" is equal to 0 or 1, since these are the only two integers that are cubes of themselves. If "a" is equal to 0 or 1, we can return True immediately.
+4. Otherwise, we need to check if "a" is equal to "n^3" for any other integer "n". We can do this by using a loop that starts at 2 and increments by 1 until it reaches the square root of "a". For each iteration of the loop, we can calculate "n^3" and check if it's equal to "a". If we find an "n" such that "n^3" is equal to "a", we can return True.
+5. If we reach the end of the loop without finding any "
+
+--------------------------------------------------
+HumanEval/78
+
+1. Define a list of prime numbers in hexadecimal format, which are 2, 3, 5, 7, B (=decimal 11), D (=decimal 13).
+2. Convert the input string to uppercase using the .upper() method.
+3. Split the input string into individual characters using the .split() method.
+4. Loop through each character in the list and check if it is a prime number by comparing it to the list of prime numbers defined in step 1. If it is a prime number, increment a counter variable.
+5. Return the value of the counter variable as the output of the function.
+6. Test the function with the examples provided in the docstring to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/79
+
+1. Start by defining the function and its parameters. In this case, the function is called `decimal_to_binary`, and it takes one parameter called `decimal`.
+2. Initialize an empty string to store the binary representation of the decimal number. This will be returned at the end of the function.
+3. Use a loop to iterate over each digit in the decimal number, starting from the rightmost digit. For each digit, use a conditional statement to determine whether it is 0 or 1, and append the corresponding binary value (either '0' or '1') to the string.
+4. After iterating through all digits, return the binary representation string.
+5. Test the function with some sample inputs to ensure that it works correctly.
+
+--------------------------------------------------
+HumanEval/80
+
+1. Check if the length of the input string `s` is at least 3. If it's less than 3, return `False`.
+2. Initialize a variable `count` to 0. This variable will keep track of the number of consecutive distinct letters we've seen so far.
+3. Loop through each character in the input string `s`, starting from the second character (since we already checked the first character in step 1).
+4. For each character, check if it's equal to the previous character. If it is, increment `count` by 1. If it's not, set `count` back to 0.
+5. After looping through all characters, return `True` if `count` is greater than or equal to 3, and `False` otherwise.
+
+--------------------------------------------------
+HumanEval/81
+
+1. Define a function called `numerical_letter_grade` that takes in a list of GPAs as an argument.
+2. Create a dictionary called `gpa_to_letter_grade` with the GPA and corresponding letter grade as key-value pairs.
+3. Use a for loop to iterate through each GPA in the input list.
+4. For each GPA, use the `gpa_to_letter_grade` dictionary to find the corresponding letter grade.
+5. Append the letter grade to a new list called `letter_grades`.
+6. Return the `letter_grades` list as the output of the function.
+
+--------------------------------------------------
+HumanEval/82
+
+1. Define a function called `prime_length` that takes a single argument called `string`.
+2. Check if the length of the input string is equal to 2 or 3. If it is, return `True`.
+3. If the length of the input string is not equal to 2 or 3, check if it is divisible by any number between 2 and the square root of the length of the input string. If it is, return `False`.
+4. If the input string is not divisible by any number between 2 and the square root of its length, return `True`.
+5. Otherwise, return `False`.
+
+--------------------------------------------------
+HumanEval/83
+
+1. Define a variable `count` to keep track of the number of n-digit positive integers that start or end with 1. Initialize it to 0.
+2. Loop through each digit in the integer `n`.
+3. For each digit, check if it is equal to 1. If it is, increment the `count` variable by 1.
+4. After looping through all digits, return the value of `count`.
+5. Test the function with some sample inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/84
+
+1. Convert the input integer N to its binary representation using the built-in `bin()` function in Python.
+2. Initialize a variable `sum` to 0.
+3. Loop through each digit of the binary representation of N, starting from the rightmost digit.
+4. For each digit, convert it to an integer using the `int()` function and add it to the `sum` variable.
+5. After looping through all digits, return the `sum` variable as a string.
+
+--------------------------------------------------
+HumanEval/85
+
+1. Check if the input list is empty or not. If it's empty, return an error message indicating that the list must be non-empty.
+2. Initialize a variable `result` to 0. This will store the sum of the even elements at odd indices.
+3. Iterate over the input list using a for loop.
+4. For each element in the list, check if its index is odd or not. If it's odd, continue to the next iteration.
+5. If the current element is even, add it to `result`.
+6. After iterating over all elements in the list, return `result`.
+
+--------------------------------------------------
+HumanEval/86
+
+1. Define a function called `anti_shuffle` that takes a string as input and returns an ordered version of it.
+2. Split the input string into individual words using the `split()` method with a space character as the separator.
+3. For each word, sort the characters in ascending order based on their ASCII value using the `sorted()` function.
+4. Join the sorted characters back into a single string using the `join()` method with an empty string as the separator.
+5. Return the ordered version of the input string.
+6. Test the function with various inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/87
+
+1. Initialize an empty list to store the coordinates of x in lst.
+2. Loop through each row in lst and check if x is present in that row. If it is, add the coordinate (row, column) to the list.
+3. Sort the list of coordinates by rows in ascending order using a sorting algorithm such as bubble sort or quicksort.
+4. For each row, sort the coordinates by columns in descending order using a sorting algorithm such as bubble sort or quicksort.
+5. Return the sorted list of coordinates.
+6. If x is not found in lst, return an empty list.
+
+--------------------------------------------------
+HumanEval/88
+
+1. Check if the given array is empty or not. If it's empty, return an empty array.
+2. Calculate the sum of the first and last index values of the given array.
+3. If the sum is odd, sort the given array in ascending order using a sorting algorithm like bubble sort or quicksort.
+4. If the sum is even, sort the given array in descending order using a sorting algorithm like bubble sort or quicksort.
+5. Return a copy of the sorted array.
+6. Don't change the original array.
+
+--------------------------------------------------
+HumanEval/89
+
+1. Define a variable `alphabet` to store the alphabet in its original order.
+2. Define a variable `rotated_alphabet` to store the rotated alphabet.
+3. Use a loop to iterate through each letter in the `alphabet` and rotate it by two places. For example, if the current letter is 'a', the new letter would be 'c'.
+4. Store the rotated letters in the `rotated_alphabet` variable.
+5. Define a function `encrypt` that takes a string as an argument and returns the encrypted string using the `rotated_alphabet`.
+6. Test the `encrypt` function with different inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/90
+
+1. Sort the input list of integers in ascending order using the built-in `sorted()` function.
+2. Find the smallest element in the sorted list by checking if the first element is less than or equal to the second element. If it is, return the second element as the next smallest number.
+3. If the smallest element is not found, check if there are any other elements in the list that are smaller than the current smallest element. If there are, return the smallest of those elements as the next smallest number.
+4. If no other elements are smaller than the current smallest element, return `None` to indicate that there is no next smallest number.
+5. Return the next smallest number found in step 2 or 3.
+
+--------------------------------------------------
+HumanEval/91
+
+1. Define a variable `count` and set it to 0. This will keep track of the number of boredoms in the input string.
+2. Split the input string into sentences using the `.`, `?`, or `!` characters as delimiters.
+3. Loop through each sentence in the list of sentences.
+4. Check if the first word in the sentence is "I". If it is, increment the `count` variable by 1.
+5. Return the final value of `count`.
+
+--------------------------------------------------
+HumanEval/92
+
+1. Check if all three numbers are integers. If any of them is not an integer, return False.
+2. Calculate the sum of the first two numbers.
+3. Check if the third number is equal to the calculated sum. If it is, return True.
+4. Check if the third number is equal to the difference between the first two numbers. If it is, return True.
+5. Return False in any other cases.
+
+--------------------------------------------------
+HumanEval/93
+
+1. Define the function "encode" and its input parameter "message".
+2. Declare a new string variable "encoded_message" to store the encoded message.
+3. Use a for loop to iterate through each character in the "message" string.
+4. Inside the for loop, use an if statement to check if the current character is a vowel (a, e, i, o, u).
+5. If the current character is a vowel, replace it with the letter that appears 2 places ahead of that vowel in the English alphabet. For example, if the current character is "a", replace it with "c".
+6. If the current character is not a vowel, swap its case by using the built-in "swapcase" method.
+7. Append the encoded character to the "encoded_message" string.
+8. Return the "encoded_message" string at the end of the function.
+
+--------------------------------------------------
+HumanEval/94
+
+
+
+--------------------------------------------------
+HumanEval/95
+
+1. Check if the given dictionary is empty. If it is, return False.
+2. Initialize two variables, `lower_case` and `upper_case`, to keep track of whether all keys are in lower case or upper case, respectively. Set both variables to True initially.
+3. Iterate through each key-value pair in the dictionary.
+4. For each key, check if it is a string. If it's not, return False.
+5. Check if the current key is in lower case or upper case. If it's in lower case and `upper_case` is True, set `upper_case` to False. If it's in upper case and `lower_case` is True, set `lower_case` to False.
+6. After iterating through all key-value pairs, return the value of `lower_case` or `upper_case`, depending on which one is still True. If both variables are False, it means that not all keys were in lower case or upper case, so return False.
+7. If the dictionary is empty, return False.
+
+--------------------------------------------------
+HumanEval/96
+
+1. Define a function called `count_up_to` that takes an integer argument `n`.
+2. Initialize an empty list to store the prime numbers less than `n`.
+3. Use a loop to iterate from 2 to `n-1`, checking if each number is prime using a primality test (e.g., trial division). If it is, add it to the list.
+4. Return the list of prime numbers.
+5. Test the function with various inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/97
+
+1. Define two variables, `a` and `b`, to store the input values.
+2. Calculate the unit digits of both inputs by taking the remainder when divided by 10. For example, if `a = 148`, then `unit_digit_a = 148 % 10 = 8`.
+3. Multiply the two unit digits together to get the product of their unit digits. For example, if `unit_digit_a = 8` and `unit_digit_b = 2`, then `product = 8 * 2 = 16`.
+4. Return the product as the output of the function.
+5. Test the function with different input values to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/98
+
+1. Define the function `count_upper` with one parameter `s`.
+2. Initialize a variable `count` to 0.
+3. Use a loop to iterate over each character in the string `s`.
+4. Check if the current character is an uppercase vowel (i.e., 'A', 'E', 'I', 'O', or 'U').
+5. If it is, and its index is even, increment `count` by 1.
+6. Return `count` as the result of the function.
+1. Define the function `count_upper` with one parameter `s`. This function will take in a string `s` and return an integer representing the number of uppercase vowels in even indices.
+2. Initialize a variable `count` to 0. This variable will keep track of the number of uppercase vowels we find in the string.
+3. Use a loop to iterate over each character in the string `s`. We can use a for loop with the syntax `for char in s:`.
+4. Inside the loop, check if the current character is an uppercase vowel (i.e., 'A', 'E', 'I', 'O', or 'U').
+
+--------------------------------------------------
+HumanEval/99
+
+1. Start by defining the function with the appropriate name and parameters.
+2. Convert the input string to a float using the `float()` function.
+3. Use the `round()` function to round the float to the nearest integer.
+4. Check if the rounded value is equal to the original float. If it is, return the rounded value as an integer.
+5. If the rounded value is not equal to the original float, check if the difference between the two values is greater than 0.5. If it is, round the float away from zero and return the resulting integer.
+6. If the difference between the two values is less than or equal to 0.5, round the float towards zero and return the resulting integer.
+7. Test the function with various inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/100
+
+1. Define a function called `make_a_pile` that takes one argument `n`.
+2. Check if `n` is positive and return an error message if it's not.
+3. Create a list to store the number of stones in each level.
+4. Set the first element of the list to `n`.
+5. Define a variable `current_level` to keep track of the current level.
+6. Loop through the levels until the current level is greater than or equal to `n`:
+a. If the current level is odd, add the next odd number to the list.
+b. If the current level is even, add the next even number to the list.
+c. Increment the current level by 1.
+7. Return the list of stones in each level.
+
+--------------------------------------------------
+HumanEval/101
+
+1. Start by defining the function and its parameters, such as the input string `s`.
+2. Use the `split()` method to split the input string into an array of words based on commas or spaces. For example, `s.split(", ")` would return an array of words separated by commas and spaces.
+3. Return the array of words from the function.
+4. Test the function with sample inputs to ensure it is working correctly.
+5. Optimize the function as needed for better performance or readability.
+
+--------------------------------------------------
+HumanEval/102
+
+1. Check if both x and y are positive numbers. If not, return -1.
+2. Find the biggest even integer number that is in the range [x, y] inclusive. This can be done by starting with the smaller of the two numbers and incrementing it by 2 until we reach a number that is greater than or equal to the larger of the two numbers.
+3. If there is no such number, return -1. Otherwise, return the biggest even integer number found in step 2.
+
+--------------------------------------------------
+HumanEval/103
+
+1. Check if n is greater than m. If it is, return -1.
+2. Calculate the average of the integers from n through m by adding them up and dividing by the number of integers (m-n+1).
+3. Round the average to the nearest integer using the round() function in Python.
+4. Convert the rounded average to binary using the bin() function in Python.
+5. Return the binary representation of the rounded average.
+
+--------------------------------------------------
+HumanEval/104
+
+1. Define a new list to store the unique elements that have no even digits.
+2. Iterate over the input list and check if each element has any even digits. If it does, skip it and move on to the next element.
+3. If an element has only odd digits, add it to the new list.
+4. Sort the new list in increasing order using the `sorted()` function.
+5. Return the sorted list as the output of the function.
+1. Define a new list called `unique_elements` to store the unique elements that have no even digits.
+2. Iterate over the input list using a for loop. For each element in the input list, check if it has any even digits by using the modulo operator (%). If the result of the modulo operation is 0, then the digit is even. If the element has any even digits, skip it and move on to the next element.
+3. If an element has only odd digits, add it to the `unique_elements` list.
+4. After iterating over all elements in the input list, sort the `unique_elements` list in increasing order using the `sorted()` function.
+5. Return the sorted list as the output of the function.
+
+--------------------------------------------------
+HumanEval/105
+
+
+
+--------------------------------------------------
+HumanEval/106
+
+1. Start by initializing an empty list to store the output.
+2. Define two variables: `even` and `odd`. These will be used to keep track of whether the current index is even or odd.
+3. Loop through each index in the input list, starting from 1.
+4. For each index, check if it's even or odd using a modulo operator (i.e., `index % 2 == 0`). If it's even, set `even` to `True`, otherwise set `odd` to `True`.
+5. If the current index is even, calculate its factorial using a recursive function call. Otherwise, calculate the sum of numbers from 1 to the current index using a loop.
+6. Append the result (either the factorial or the sum) to the output list.
+7. Return the output list once the loop has finished executing.
+
+--------------------------------------------------
+HumanEval/107
+
+1. Define a function called `is_palindrome` that takes an integer as input and returns a boolean indicating whether the integer is a palindrome.
+2. Use a loop to iterate over the range of integers from 1 to n (inclusive). For each integer, check if it is a palindrome using the `is_palindrome` function. If it is, increment a counter for either even or odd integers depending on whether the integer is even or odd.
+3. Return a tuple containing the values of the two counters. The first element of the tuple should be the number of even palindromes and the second element should be the number of odd palindromes.
+
+--------------------------------------------------
+HumanEval/108
+
+1. Initialize a variable `count` to 0.
+2. Iterate over each element in the input array.
+3. For each element, calculate its sum of digits using the formula: `sum = abs(element) + (element < 0)`. This will give us the absolute value of the element if it is positive, and the absolute value minus 1 if it is negative.
+4. If the sum of digits is greater than 0, increment the `count` variable by 1.
+5. Return the final value of `count`.
+
+--------------------------------------------------
+HumanEval/109
+
+
+
+--------------------------------------------------
+HumanEval/110
+
+1. Check if all elements of lst1 are even numbers. If yes, return "YES".
+2. Check if there are any even numbers in lst2. If no, return "NO".
+3. Find the first even number in lst2 and exchange it with the first odd number in lst1.
+4. Repeat step 3 until all elements of lst1 are even numbers or there are no more even numbers in lst2.
+5. If all elements of lst1 are even numbers, return "YES". Otherwise, return "NO".
+
+--------------------------------------------------
+HumanEval/111
+
+1. Initialize an empty dictionary to store the letter counts.
+2. Split the input string into individual letters using the space character as the delimiter.
+3. Iterate over each letter and increment its count in the dictionary if it already exists, or set its count to 1 if it doesn't exist.
+4. Find the maximum occurrence of any letter by iterating over the dictionary values and keeping track of the highest value seen so far.
+5. If there are multiple letters with the same maximum occurrence, add them all to a list.
+6. Return the list of letters with the maximum occurrence, or an empty list if no letters have been encountered.
+
+--------------------------------------------------
+HumanEval/112
+
+1. Initialize an empty string to store the result of the deleted characters.
+2. Iterate through each character in the first string (s).
+3. Check if the current character is present in the second string (c). If it is, do not add it to the result string.
+4. If the current character is not present in the second string (c), add it to the result string.
+5. After iterating through all characters in the first string (s), check if the result string is a palindrome by comparing it with its reverse.
+6. Return a tuple containing the result string and True/False for the palindrome check.
+
+--------------------------------------------------
+HumanEval/113
+
+1. Define a function called `odd_count` that takes in a list of strings as input.
+2. Initialize an empty list to store the output.
+3. Loop through each string in the input list.
+4. For each string, use a nested loop to iterate over each character and check if it is odd or even.
+5. If the character is odd, increment a counter variable by 1.
+6. After iterating over all characters in the current string, add the counter variable to the output list.
+7. Return the output list.
+8. Test the function with the provided examples.
+
+--------------------------------------------------
+HumanEval/114
+
+1. Initialize a variable `min_sum` to store the minimum sum of any non-empty sub-array. Set it to a large value, such as `float('inf')`.
+2. Loop through each element in the input array `nums`.
+3. For each element, loop through all possible sub-arrays that start at that element and end at the last element of the array.
+4. Calculate the sum of each sub-array and compare it to `min_sum`. If the current sub-array's sum is less than `min_sum`, update `min_sum` with the new value.
+5. Return `min_sum` as the minimum sum of any non-empty sub-array.
+
+--------------------------------------------------
+HumanEval/115
+
+1. Define the function with the appropriate parameters (grid, capacity) and return type (int).
+2. Initialize a variable to keep track of the number of times the buckets are lowered (num_lowerings).
+3. Loop through each row of the grid.
+4. For each row, loop through each column and check if there is water in that well (if grid[row][col] == 1).
+5. If there is water in the well, calculate how much water can be extracted from it using the bucket capacity (min(capacity, grid[row][col])).
+6. Add the amount of water extracted to the total amount of water extracted so far (num_lowerings += min(capacity, grid[row][col])).
+7. If all wells have been emptied, return num_lowerings.
+8. Otherwise, continue looping through the rows and columns until all wells are empty.
+9. Return num_lowerings.
+
+--------------------------------------------------
+HumanEval/116
+
+1. Define a function called `sort_array` that takes an array of non-negative integers as input.
+2. Initialize two empty lists: one to store the sorted array and another to store the binary representation of each element in the original array.
+3. Loop through each element in the original array and convert it to its binary representation using the `bin()` function.
+4. Add the binary representation to the list created in step 2.
+5. Use the `sorted()` function to sort the list of binary representations based on the number of ones in each representation.
+6. Loop through each element in the sorted list and convert it back to its decimal representation using the `int()` function.
+7. Add the decimal representation to the list created in step 1.
+8. Return the sorted array.
+
+--------------------------------------------------
+HumanEval/117
+
+1. Define a function called `select_words` that takes two parameters: a string `s` and an integer `n`.
+2. Initialize an empty list to store the words that meet the condition of having exactly `n` consonants.
+3. Split the input string `s` into individual words using the `split()` method with a space as the separator.
+4. Loop through each word in the list of words and check if it has exactly `n` consonants. You can do this by counting the number of consonants in the word and comparing it to `n`. If the word has exactly `n` consonants, add it to the list of selected words.
+5. Return the list of selected words. If the input string is empty, return an empty list.
+6. Test the function with different inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/118
+
+1. Define a variable `vowels` to store the vowels in the English alphabet.
+2. Define a variable `consonants` to store the consonants in the English alphabet.
+3. Iterate through each character in the input word from right to left.
+4. If the current character is a vowel, check if it's not at the beginning or end of the word. If it's not, return the vowel.
+5. If the current character is a consonant, add it to a list of consonants.
+6. If the next character is also a consonant, continue iterating through the word.
+7. If the next character is a vowel, check if it's not at the beginning or end of the word. If it's not, return the vowel.
+8. If no vowels are found between two consonants, return an empty string.
+
+--------------------------------------------------
+HumanEval/119
+
+1. Initialize a variable `good` to `True`. This will keep track of whether or not it is possible to concatenate the two strings in some order, such that the resulting string is good.
+2. Loop through each character in the first string. If a close parenthesis is encountered before an open parenthesis, set `good` to `False`.
+3. If `good` is still `True`, loop through each character in the second string. If an open parenthesis is encountered before a close parenthesis, set `good` to `False`.
+4. If `good` is still `True`, concatenate the two strings in some order and check if the resulting string is good by counting the number of open parentheses and making sure it is equal to the number of close parentheses.
+5. Return `'Yes'` if `good` is still `True`, otherwise return `'No'`.
+
+--------------------------------------------------
+HumanEval/120
+
+1. Sort the input array arr in descending order using the built-in sort() method.
+2. Create an empty list result to store the maximum k numbers.
+3. Iterate through the sorted array arr and append each element to the result list until its length is equal to k.
+4. Return the result list as the output of the function.
+
+--------------------------------------------------
+HumanEval/121
+
+1. Initialize a variable `sum` to 0.
+2. Iterate over the list of integers using a for loop.
+3. For each element in the list, check if its index is even. If it is not, skip to the next iteration.
+4. If the current element's index is even, add it to the `sum` variable.
+5. Return the `sum` variable.
+
+--------------------------------------------------
+HumanEval/122
+
+1. Initialize a variable `sum` to 0.
+2. Loop through the first `k` elements of the input array `arr`.
+3. For each element, check if it has at most two digits. If it does, add it to the `sum` variable.
+4. Return the `sum` variable.
+
+--------------------------------------------------
+HumanEval/123
+
+1. Define a function called `get_odd_collatz` that takes a positive integer `n` as input and returns a sorted list of odd numbers from the Collatz sequence starting at `n`.
+2. Initialize an empty list to store the odd numbers in the Collatz sequence.
+3. Use a while loop to iterate through the Collatz sequence starting at `n`, using the formula `next_term = 3 * term + 1` if `term` is odd, and `next_term = term / 2` if `term` is even.
+4. For each term in the Collatz sequence, check if it is odd. If it is, add it to the list of odd numbers.
+5. Once the while loop has finished iterating through the entire Collatz sequence, return the sorted list of odd numbers.
+6. To ensure that the returned list is sorted in increasing order, use the `sorted` function with the `key` parameter set to `None`. This will sort the list based on the natural ordering of the elements.
+
+--------------------------------------------------
+HumanEval/124
+
+1. Check if the date string is empty or not. If it is empty, return False.
+2. Split the date string into three parts using the '-' character as the delimiter. These parts will represent the month, day, and year respectively.
+3. Check if the month part is between 1 and 12 (inclusive). If it is not, return False.
+4. Check if the day part is between 1 and the number of days in the given month (e.g. 28 for February in a non-leap year). If it is not, return False.
+5. Check if the year part is a valid year (i.e. greater than or equal to 0). If it is not, return False.
+6. Return True if all of the above checks pass, and False otherwise.
+
+--------------------------------------------------
+HumanEval/125
+
+1. Check if the input string contains any whitespace characters. If it does, split the string on whitespace and return a list of words.
+2. If there are no whitespace characters in the input string, check if it contains any commas. If it does, split the string on commas and return a list of words.
+3. If there are neither whitespace nor comma characters in the input string, calculate the number of lower-case letters with odd order in the alphabet. To do this, you can use the `ord()` function to get the ASCII code for each letter, and then check if it is an odd number. Return the count of such letters.
+4. If none of the above conditions are met, return an error message indicating that the input string does not contain any whitespace or comma characters.
+
+--------------------------------------------------
+HumanEval/126
+
+1. Check if the list has only one element. If it does, return True.
+2. Initialize two variables, `prev` and `curr`, to the first two elements of the list.
+3. Iterate through the rest of the list, comparing each element to `curr`. If an element is less than or equal to `curr`, return False.
+4. If no element is less than or equal to `curr`, set `prev` to `curr` and `curr` to the current element.
+5. After iterating through the entire list, return True if `curr` is greater than `prev`, and False otherwise.
+
+--------------------------------------------------
+HumanEval/127
+
+
+
+--------------------------------------------------
+HumanEval/128
+
+1. Check if the input array is empty. If it is, return `None`.
+2. Initialize two variables, `product` and `sum`, both set to 0.
+3. Loop through each element in the input array.
+4. For each element, check its sign. If it's positive, add 1 to `product`. If it's negative, subtract 1 from `product`. If it's zero, do nothing.
+5. Multiply the current element by the product of all signs so far.
+6. Add the result to `sum`.
+7. Return `sum` at the end of the function.
+
+--------------------------------------------------
+HumanEval/129
+
+
+
+--------------------------------------------------
+HumanEval/130
+
+1. Define the
+
+--------------------------------------------------
+HumanEval/131
+
+1. Start by defining a variable `result` to store the product of the odd digits. Initialize it to 0.
+2. Use a loop to iterate over each digit in the input number `n`.
+3. For each digit, check if it is odd or even using the modulo operator (%). If the result of `digit % 2` is 1, then the digit is odd.
+4. If the current digit is odd, multiply it by the previous result and store the product in `result`.
+5. After iterating over all digits, return the final value of `result`.
+
+--------------------------------------------------
+HumanEval/132
+
+1. Check if the input string contains only square brackets. If it doesn't, return False.
+2. Initialize two variables, `open_brackets` and `closed_brackets`, both set to 0.
+3. Iterate through each character in the input string.
+4. If the current character is an opening bracket (`[`), increment `open_brackets`.
+5. If the current character is a closing bracket (`]`), decrement `open_brackets` and increment `closed_brackets`.
+6. If `open_brackets` is ever negative, return False.
+7. If `closed_brackets` is greater than or equal to `open_brackets`, return False.
+8. After iterating through the entire input string, if `open_brackets` is 0 and `closed_brackets` is not 0, return True. Otherwise, return False.
+
+--------------------------------------------------
+HumanEval/133
+
+1. Define a new list to store the rounded elements of the input list.
+2. Iterate over the input list and round each element using the ceiling function.
+3. Add the squared value of each rounded element to the sum.
+4. Return the final sum.
+
+--------------------------------------------------
+HumanEval/134
+
+1. Check if the input string is empty or not. If it's empty, return False.
+2. Find the last character of the input string using the len() function and subtracting 1 from its length.
+3. Check if the last character is a letter by using the isalpha() method. If it's not a letter, return False.
+4. Split the input string into words using the split() method with a space as the separator.
+5. Check if the last word in the list of words is equal to the last character of the input string. If they are not equal, return True. Otherwise, return False.
+
+--------------------------------------------------
+HumanEval/135
+
+1. Initialize a variable `largest_index` to -1. This will be used to keep track of the largest index of an element that meets the criteria.
+2. Iterate through the input array `arr`.
+3. For each element in the array, check if it is not greater than or equal to the element immediately preceding it. If this condition is met, update `largest_index` to be the current index.
+4. After iterating through the entire array, return `largest_index`. If no such element exists (i.e., `largest_index` is still -1), then return -1.
+
+--------------------------------------------------
+HumanEval/136
+
+1. Check if the input list is empty or contains only one element. If so, return (None, None).
+2. Initialize two variables, `largest_negative` and `smallest_positive`, to None.
+3. Iterate through the input list and check each element. If it's negative, compare it to `largest_negative`. If it's positive, compare it to `smallest_positive`.
+4. If a negative element is found that is larger than `largest_negative`, update `largest_negative` with the new value. If a positive element is found that is smaller than `smallest_positive`, update `smallest_positive` with the new value.
+5. After iterating through the entire list, return (largest_negative, smallest_positive). If either variable is still None, it means there were no negative or positive integers in the list, so return (None, None) instead.
+
+--------------------------------------------------
+HumanEval/137
+
+1. Check if both inputs are of the same type (integer, float, or string). If they are not, return an error message indicating that the input types do not match.
+2. Convert any string inputs to floats using the `float()` function. If the string cannot be converted to a float, return an error message indicating that the input is invalid.
+3. Compare the two values and determine which one is larger. If they are equal, return `None`.
+4. Return the larger value in its original type (integer, float, or string).
+5. Test the function with various inputs to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/138
+
+1. Initialize a variable `result` to `False`. This will be the final result of the function.
+2. Loop through all possible combinations of 4 positive even numbers that sum up to `n`.
+3. For each combination, check if the sum of the 4 numbers is equal to `n`. If it is, set `result` to `True` and break out of the loop.
+4. Return `result`.
+
+--------------------------------------------------
+HumanEval/139
+
+1. Define a variable `result` to store the result of the calculation. Initialize it with the value 1.
+2. Use a loop to iterate from `n` down to 1.
+3. In each iteration, multiply `result` by the current value of `n!`.
+4. Decrement `n` by 1.
+5. Repeat steps 3 and 4 until `n` is equal to 1.
+6. Return the final value of `result`.
+
+--------------------------------------------------
+HumanEval/140
+
+1. Initialize an empty string to store the modified text.
+2. Iterate over each character in the input text.
+3. If the current character is a space, check if it is followed by another space.
+4. If there are two or more consecutive spaces, replace all of them with a single underscore.
+5. If there is only one space, replace it with an underscore.
+6. If the current character is not a space, add it to the modified text as is.
+7. Return the modified text.
+1. Initialize an empty string `modified_text` to store the modified text.
+2. Iterate over each character `c` in the input text using a for loop.
+3. If `c` is a space, check if it is followed by another space by checking if the next character in the input text is also a space.
+4. If there are two or more consecutive spaces, replace all of them with a single underscore by setting `modified_text` to `"_"`.
+5. If there is only one space, replace it with an underscore by setting `modified_text` to `"_"`.
+6. If `c` is not a space, add it to the modified
+
+--------------------------------------------------
+HumanEval/141
+
+1. Check if the length of the file name is greater than 3 characters. If it is, return "No".
+2. Check if the file name contains a dot ('.') character. If it does not, return "No".
+3. Check if the substring before the dot is empty or does not start with a letter from the Latin alphabet ('a'-'z' and 'A'-'Z'). If it does not, return "No".
+4. Check if the substring after the dot is one of the following: ['txt', 'exe', 'dll']. If it is not, return "No".
+5. Return "Yes" if all conditions are met.
+
+--------------------------------------------------
+HumanEval/142
+
+1. Initialize an empty list to store the modified values of the input list.
+2. Iterate over the indices and values of the input list using the enumerate() function.
+3. For each index, check if it is a multiple of 3 or 4 using the modulo operator (%). If the index is a multiple of 3, square the value. If the index is a multiple of 4 but not a multiple of 3, cube the value. Otherwise, leave the value unchanged.
+4. Append the modified value to the output list.
+5. Return the sum of all values in the output list.
+
+--------------------------------------------------
+HumanEval/143
+
+1. Initialize an empty list to store the words from the original sentence whose lengths are prime numbers.
+2. Split the input sentence into individual words using the space character as the delimiter.
+3. Iterate over each word in the list of words and check if its length is a prime number. If it is, add it to the list created in step 1.
+4. Join the words in the list created in step 1 with a space character as the separator to form the output string.
+5. Return the output string.
+
+--------------------------------------------------
+HumanEval/144
+
+1. Convert the string representations of x and n to fractions using the `Fraction` class from the `fractions` module.
+2. Multiply the two fractions together to get their product.
+3. Check if the product is a whole number by dividing it by its greatest common divisor (GCD) using the `gcd` function from the `math` module. If the result is 1, then the product is a whole number and we return True. Otherwise, we return False.
+4. Handle any edge cases that may arise, such as if x or n are invalid fractions or have zero as their denominator.
+
+--------------------------------------------------
+HumanEval/145
+
+1. Define a function called `order_by_points` that takes a list of integers as input.
+2. Initialize an empty dictionary called `digit_sums` to store the sum of digits for each integer in the input list.
+3. Loop through the input list and calculate the sum of digits for each integer using the formula: `sum = int(str(num))`.
+4. Add the calculated sum to the `digit_sums` dictionary with the key being the index of the integer in the input list, and the value being the sum of its digits.
+5. Sort the `digit_sums` dictionary by its values using the built-in `sorted()` function.
+6. Return a new list containing the integers from the input list sorted based on their corresponding values in the `digit_sums` dictionary.
+7. If the input list is empty, return an empty list.
+
+--------------------------------------------------
+HumanEval/146
+
+1. Define a function called `specialFilter` that takes an array of numbers as input and returns the number of elements in the array that meet the specified conditions.
+2. Initialize a variable called `count` to 0. This will keep track of the number of elements in the array that meet the conditions.
+3. Use a for loop to iterate over each element in the array.
+4. Inside the for loop, use an if statement to check if the current element is greater than 10 and both its first and last digits are odd. If it meets these conditions, increment `count` by 1.
+5. After the for loop, return `count`. This will be the number of elements in the array that meet the specified conditions.
+6. Test the function with the given examples to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/147
+
+1. Initialize an empty list to store the values of a[i].
+2. Loop through each value of i from 1 to n and calculate the corresponding value of a[i] = i * i - i + 1.
+3. Add the calculated value of a[i] to the list created in step 1.
+4. Initialize a counter for the number of valid triples.
+5. Loop through each pair of values (a[i], a[j]) where i < j and check if there exists a value a[k] such that i < k < j and a[i] + a[j] + a[k] is a multiple of 3. If such a triplet exists, increment the counter by 1.
+6. Return the final value of the counter as the output of the function.
+
+--------------------------------------------------
+HumanEval/148
+
+1. Define a list of all the planets in our solar system, sorted by their proximity to the sun.
+2. Check if planet1 and planet2 are valid planet names. If not, return an empty tuple.
+3. Find the indices of planet1 and planet2 in the list of planets.
+4. Use the indices to extract all the planets between planet1 and planet2 from the list of planets.
+5. Return a tuple containing the extracted planets, sorted by their proximity to the sun.
+
+--------------------------------------------------
+HumanEval/149
+
+1. Check if the input list contains any strings with odd lengths and remove them from the list.
+2. Sort the remaining strings in ascending order by length.
+3. If two strings have the same length, sort them alphabetically.
+4. Return the sorted list of strings.
+
+--------------------------------------------------
+HumanEval/150
+
+1. Check if n is a prime number.
+2. If n is a prime number, return x.
+3. Otherwise, return y.
+
+--------------------------------------------------
+HumanEval/151
+
+1. Check if the input list is empty. If it is, return 0.
+2. Initialize a variable `sum` to 0.
+3. Iterate over the elements of the input list.
+4. For each element, check if it is an odd number and not negative or not an integer. If it meets these conditions, add its square to the `sum`.
+5. Return the `sum`.
+1. Check if the input list is empty by using the `len` function. If the length of the list is 0, return 0.
+2. Initialize a variable `sum` to 0. This will be used to store the sum of the squares of the odd numbers in the list.
+3. Use a for loop to iterate over the elements of the input list. For each element, check if it is an odd number by using the modulo operator (%). If the result of `element % 2` is not equal to 0, then the element is odd.
+4. Check if the element is not negative or not an integer by using the `isinstance` function. If the element is not an instance of the `int` class, or if its value is less than 0, skip it and move
+
+--------------------------------------------------
+HumanEval/152
+
+1. Initialize an empty list to store the results of each comparison.
+2. Loop through each index in the `game` and `guess` arrays.
+3. For each index, check if the guess is equal to the score. If it is, add a 0 to the results list. If not, calculate the absolute difference between the guess and the score and add that value to the results list.
+4. Return the results list.
+
+--------------------------------------------------
+HumanEval/153
+
+1. Define a variable `strongest_extension` and set it to an empty string.
+2. Loop through each extension in the list of extensions.
+3. For each extension, calculate its strength by subtracting the number of lowercase letters from the number of uppercase letters.
+4. If the current extension's strength is greater than the `strongest_extension`'s strength, set `strongest_extension` to the current extension.
+5. Return a string in the format "ClassName.StrongestExtensionName" using the class name and the strongest extension found.
+6. If there are no extensions in the list, return an empty string.
+
+--------------------------------------------------
+HumanEval/154
+
+1. Define two variables, `word1` and `word2`, to store the input words.
+2. Check if `word2` is a substring of `word1`. If it is, return `True`.
+3. If `word2` is not a substring of `word1`, rotate `word2` by one character and check if the rotated string is a substring of `word1`. Repeat this process until all possible rotations have been checked.
+4. If any rotation of `word2` is a substring of `word1`, return `True`. Otherwise, return `False`.
+
+--------------------------------------------------
+HumanEval/155
+
+1. Start by defining the function and its parameters. In this case, the function is called `even_odd_count` and it takes one parameter called `num`.
+2. Initialize two variables, `even_count` and `odd_count`, to 0. These variables will be used to keep track of the number of even and odd digits in the input number.
+3. Use a loop to iterate through each digit in the input number. For example, if the input number is 12345, the loop would iterate through the digits 1, 2, 3, 4, and 5.
+4. Inside the loop, use an if-statement to check whether the current digit is even or odd. If it's even, increment `even_count` by 1. If it's odd, increment `odd_count` by 1.
+5. After the loop finishes, return a tuple that contains the values of `even_count` and `odd_count`. In Python, you can create a tuple by using parentheses and separating the values with commas. For example: `(even_count, odd_count)`.
+6. Test the function with some sample inputs to make sure it's working correctly. For example, you could call the function
+
+--------------------------------------------------
+HumanEval/156
+
+1. Define a dictionary to map each digit of the input number to its corresponding Roman numeral symbol. For example, '1' should be mapped to 'I', '2' should be mapped to 'II', and so on.
+2. Convert the input number to a string using the `str()` function.
+3. Iterate over each character in the string representation of the input number, and for each character, use the dictionary created in step 1 to obtain its corresponding Roman numeral symbol.
+4. Concatenate all the Roman numeral symbols obtained in step 3 to form the final Roman numeral equivalent of the input number.
+5. Return the final Roman numeral equivalent as a string.
+6. Test the function with various inputs to ensure it is working correctly.
+
+--------------------------------------------------
+HumanEval/157
+
+1. Start by defining the function and its parameters, `a`, `b`, and `c`.
+2. Calculate the lengths of the sides using the Pythagorean theorem: `c**2 = a**2 + b**2`.
+3. Check if the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the lengths of the other two sides. If it is, return `True`, otherwise return `False`.
+4. Test the function with different input values to ensure it works correctly.
+
+--------------------------------------------------
+HumanEval/158
+
+1. Define a variable `max_word` and initialize it to an empty string. This will be used to store the word with the maximum number of unique characters.
+2. Loop through each word in the input list using a for loop.
+3. For each word, find the number of unique characters it contains by converting the word into a set (which removes duplicates) and then finding the length of the set.
+4. Compare the number of unique characters in the current word with the maximum number of unique characters found so far (stored in `max_word`). If the current word has more unique characters, update `max_word` to be the current word.
+5. If multiple words have the same maximum number of unique characters, compare them using lexicographical order and return the one that comes first.
+6. Return the final value of `max_word`.
+
+--------------------------------------------------
+HumanEval/159
+
+1. Check if there are enough carrots to meet the need. If not, return an array with the total number of eaten carrots and 0 as the second element.
+2. Calculate the total number of eaten carrots by adding the number of carrots already eaten and the number of carrots needed.
+3. Check if there are any remaining carrots after eating. If not, return an array with the total number of eaten carrots and 0 as the second element.
+4. Calculate the number of remaining carrots by subtracting the total number of eaten carrots from the number of remaining carrots.
+5. Return an array with the total number of eaten carrots and the number of remaining carrots.
+
+--------------------------------------------------
+HumanEval/160
+
+1. First, we need to check if the length of the operator list is equal to the length of the operand list minus one. If it's not, then we need to raise an error.
+2. Next, we need to iterate through the operator list and perform the corresponding operation on the operands. For example, if the current operator is '+', we add the current operand to the result. If the current operator is '-', we subtract the current operand from the result.
+3. We continue this process until we have iterated through all the operators in the list. The final result will be the evaluation of the algebraic expression.
+4. To handle negative numbers, we can use the built-in Python function `abs()` to get the absolute value of each operand before performing any operations. This ensures that the result is always positive, even if one or more of the operands are negative.
+5. Finally, we return the final result as a string, so that it can be easily printed or used in other parts of the program.
+
+--------------------------------------------------
+HumanEval/161
+
+1. Check if the input string contains any letters. If it does not contain any letters, reverse the string and return it.
+2. Iterate through each character in the input string.
+3. For each character, check if it is a letter. If it is a letter, reverse its case (i.e., convert lowercase to uppercase or vice versa).
+4. If the character is not a letter, keep it as it is.
+5. Return the resulted string.
+
+--------------------------------------------------
+HumanEval/162
+
+1. Check if the input string 'text' is empty. If it is, return None.
+2. Convert the input string to a byte array using the `bytes()` function.
+3. Create an MD5 hash object using the `hashlib.md5()` function.
+4. Update the hash object with the byte array representation of the input string using the `update()` method.
+5. Return the hexadecimal digest of the hash object using the `hexdigest()` method.
+
+--------------------------------------------------
+HumanEval/163
+
+1. Define two variables, `a` and `b`, to store the positive integers passed as arguments to the function.
+2. Initialize an empty list, `even_digits`, to store the even digits between `a` and `b`.
+3. Use a loop to iterate over each digit in the range of `a` to `b`.
+4. For each digit, check if it is even by using the modulo operator (`% 2 == 0`). If it is even, add it to the `even_digits` list.
+5. After the loop completes, sort the `even_digits` list in ascending order using the built-in `sorted()` function.
+6. Return the sorted `even_digits` list as the output of the function.
+
+--------------------------------------------------

@@ -2,6 +2,7 @@
 	"pass@1": 0.5756754776123498,
 	"pass@10": 0.8542495858641357,
 	"pass@100": "number of all test cases are less then 100",
+	"mean_length": 150.7378048780488,
 	"error_ids": {
 		"HumanEval/1": "0100100100",
 		"HumanEval/5": "001",
