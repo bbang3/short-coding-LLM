@@ -1,5 +1,11 @@
 import evaluation
+import os
 
 if __name__=="__main__":
-    # evaluation.evaluate(to_json=True, add_error_list=True)
-    evaluation.evaluate(samplePath="predictions\predictions_instruct_baseline.jsonl", to_json=True, json_name="eval_length", add_error_list=True)
+    in_dir = "predictions"
+    out_dir = "evaluations"
+
+    experiment_name = "summary_1"
+    in_path = os.path.join(in_dir, f"prediction_{experiment_name}.jsonl")
+    out_path = os.path.join(out_dir, f"evaluation_{experiment_name}")
+    evaluation.evaluate(samplePath=in_path, to_json=True, json_name=out_path, add_error_list=True)
