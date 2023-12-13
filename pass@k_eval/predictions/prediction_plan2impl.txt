@@ -1,0 +1,2478 @@
+HumanEval/0
+
+def has_close_elements(numbers: List[float], threshold: float) -> bool:
+    numbers.sort()
+    for i in range(len(numbers) - 1):
+        if numbers[i + 1] - numbers[i] <= threshold:
+            return True
+    return False
+
+--------------------------------------------------
+HumanEval/1
+
+def separate_paren_groups(paren_string: str) -> List[str]:
+    result = []
+    current_group = ""
+    for char in paren_string:
+        if char == "(":
+            current_group += char
+        elif char == ")":
+            current_group += char
+            result.append(current_group)
+            current_group = ""
+        else:
+            continue
+    return result
+
+--------------------------------------------------
+HumanEval/2
+
+import math
+
+def truncate_number(number: float) -> float:
+    """
+    Truncates a positive floating point number and returns its decimal part.
+
+    Parameters
+    ----------
+    number : float
+        A positive floating point number.
+
+    Returns
+    -------
+    float
+        The decimal part of the number.
+
+    Raises
+    ------
+    ValueError
+        If the input number is not positive.
+
+    """
+    if number <= 0:
+        raise ValueError("The input number must be positive.")
+    integer, decimals = math.modf(number)
+    return decimals
+
+--------------------------------------------------
+HumanEval/3
+
+def below_zero(operations: List[int]) -> bool:
+    balance = 0
+    for operation in operations:
+        if operation > 0:
+            balance += operation
+        else:
+            balance -= abs(operation)
+        if balance < 0:
+            return True
+    return False
+
+--------------------------------------------------
+HumanEval/4
+
+from typing import List
+
+def mean_absolute_deviation(numbers: List[float]) -> float:
+    """
+    Calculates the Mean Absolute Deviation of a list of numbers.
+
+    The Mean Absolute Deviation is the average absolute difference between each element and the mean of the dataset.
+
+    Parameters
+    ----------
+    numbers : List[float]
+        The input list of numbers.
+
+    Returns
+    -------
+    float
+        The Mean Absolute Deviation of the input list.
+    """
+    mean = sum(numbers) / len(numbers)
+    absolute_deviations = [abs(x - mean) for x in numbers]
+    return sum(absolute_deviations) / len(numbers)
+
+--------------------------------------------------
+HumanEval/5
+
+def intersperse(numbers: List[int], delimeter: int) -> List[int]:
+    result = []
+    for i in range(len(numbers)):
+        result.append(numbers[i])
+        if i < len(numbers) - 1:
+            result.append(delimeter)
+    return result
+
+--------------------------------------------------
+HumanEval/6
+
+def parse_nested_parens(paren_string: str) -> List[int]:
+    tokens = paren_string.split()
+    max_levels = []
+    current_level = 0
+    for token in tokens:
+        if token == '(':
+            current_level += 1
+        elif token == ')':
+            current_level -= 1
+        else:
+            max_levels.append(current_level)
+    return max_levels
+
+--------------------------------------------------
+HumanEval/7
+
+def filter_by_substring(my_list, substring):
+    return [s for s in my_list if substring in s]
+
+--------------------------------------------------
+HumanEval/8
+
+def sum_product(numbers: List[int]) -> Tuple[int, int]:
+    result = (0, 1)
+    for num in numbers:
+        result = (result[0] + num, result[1] * num)
+    return result
+
+--------------------------------------------------
+HumanEval/9
+
+def rolling_max(numbers: List[int]) -> List[int]:
+    result = []
+    current_max = 0
+    for num in numbers:
+        if num > current_max:
+            current_max = num
+        result.append(current_max)
+    return result
+
+--------------------------------------------------
+HumanEval/10
+
+def make_palindrome(string: str) -> str:
+    """
+    Find the shortest palindrome that begins with a supplied string.
+
+    Algorithm idea is simple:
+        - Find the longest postfix of supplied string that is a palindrome.
+        - Append to the end of the string reverse of a string prefix that comes before the palindromic suffix.
+
+    >>> make_palindrome('')
+    ''
+    >>> make_palindrome('cat')
+    'catac'
+    >>> make_palindrome('cata')
+    'catac'
+    """
+    prefix = ""
+    suffix = string
+
+    for i in range(len(string)):
+        if string[i] != string[-1]:
+            break
+        prefix = string[:i+1]
+        suffix = string[i+1:]
+
+    return prefix + suffix[::-1]
+
+--------------------------------------------------
+HumanEval/11
+
+def string_xor(a: str, b: str) -> str:
+    result = ""
+    for i in range(len(a)):
+        if a[i] != b[i]:
+            result += "1"
+        else:
+            result += "0"
+    return result
+
+--------------------------------------------------
+HumanEval/12
+
+def longest(strings: List[str]) -> Optional[str]:
+    if not strings:
+        return None
+    longest_string = ""
+    for string in strings:
+        if len(string) > len(longest_string):
+            longest_string = string
+    return longest_string
+
+--------------------------------------------------
+HumanEval/13
+
+def greatest_common_divisor(a: int, b: int) -> int:
+    """
+    Return the greatest common divisor of two integers a and b
+    """
+    if a == 0 or b == 0:
+        return abs(a - b)
+
+    gcd = min(a, b)
+
+    while gcd != 1:
+        if a % gcd == 0 and b % gcd == 0:
+            return gcd
+        gcd -= 1
+
+    return 1
+
+--------------------------------------------------
+HumanEval/14
+
+def all_prefixes(string: str) -> List[str]:
+    prefixes = []
+    for i in range(len(string)):
+        prefixes.append(string[:i+1])
+    return prefixes
+
+--------------------------------------------------
+HumanEval/15
+
+def string_sequence(n: int) -> str:
+    result = ""
+    for i in range(n+1):
+        result += str(i) + " "
+    return result.strip()
+
+--------------------------------------------------
+HumanEval/16
+
+def count_distinct_characters(string: str) -> int:
+    unique_chars = set()
+    for char in string:
+        if char.lower() not in unique_chars:
+            unique_chars.add(char.lower())
+    return len(unique_chars)
+
+--------------------------------------------------
+HumanEval/17
+
+def parse_music(music_string: str) -> List[int]:
+    """
+    Parse a string representing musical notes in a special ASCII format and return a list of integers corresponding to the beat lengths.
+    """
+    note_map = {'o': 4, 'o|': 2, '.|': 1}
+    notes = music_string.split()
+    beat_lengths = []
+    for note in notes:
+        beat_lengths.append(note_map[note])
+    return beat_lengths
+
+--------------------------------------------------
+HumanEval/18
+
+def how_many_times(string: str, substring: str) -> int:
+    count = 0
+    for i in range(len(string)):
+        if string[i:i+len(substring)] == substring:
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/19
+
+def sort_numbers(numbers: str) -> str:
+    num_tokens = numbers.split()
+    num_values = []
+    for token in num_tokens:
+        if token == "zero":
+            num_values.append(0)
+        elif token == "one":
+            num_values.append(1)
+        elif token == "two":
+            num_values.append(2)
+        elif token == "three":
+            num_values.append(3)
+        elif token == "four":
+            num_values.append(4)
+        elif token == "five":
+            num_values.append(5)
+        elif token == "six":
+            num_values.append(6)
+        elif token == "seven":
+            num_values.append(7)
+        elif token == "eight":
+            num_values.append(8)
+        elif token == "nine":
+            num_values.append(9)
+    sorted_values = sorted(num_values)
+    sorted_tokens = []
+    for value in sorted_values:
+        if value == 0:
+            sorted_tokens.append("zero")
+        elif value == 1:
+            sorted_tokens.append("one")
+
+--------------------------------------------------
+HumanEval/20
+
+def find_closest_elements(numbers: List[float]) -> Tuple[float, float]:
+    """
+    Find and return the closest pair of elements in a given list of numbers.
+    The elements in the pair should be returned in ascending order.
+    """
+    # Sort the list in ascending order
+    sorted_list = sorted(numbers)
+
+    # Initialize the minimum difference and the closest pair
+    min_diff = float("inf")
+    closest_pair = ()
+
+    # Iterate over the sorted list
+    for i in range(len(sorted_list) - 1):
+        # Calculate the difference between the current element and its previous element
+        diff = sorted_list[i + 1] - sorted_list[i]
+
+        # If the difference is less than the minimum difference, update the minimum difference and the closest pair
+        if diff < min_diff:
+            min_diff = diff
+            closest_pair = (sorted_list[i], sorted_list[i + 1])
+
+    return closest_pair
+
+--------------------------------------------------
+HumanEval/21
+
+def rescale_to_unit(numbers):
+    # sort the list in ascending order
+    numbers.sort()
+    # get the minimum and maximum values
+    min_value = numbers[0]
+    max_value = numbers[-1]
+    # calculate the range of the data
+    range_value = max_value - min_value
+    # create a new list to store the rescaled values
+    rescaled_values = []
+    # iterate over the original list of numbers and calculate the rescaled value for each number
+    for number in numbers:
+        rescaled_value = (number - min_value) / range_value
+        rescaled_values.append(rescaled_value)
+    return rescaled_values
+
+--------------------------------------------------
+HumanEval/22
+
+def filter_integers(values: List[Any]) -> List[int]:
+    result = []
+    for value in values:
+        if isinstance(value, int):
+            result.append(value)
+    return result
+
+--------------------------------------------------
+HumanEval/23
+
+def strlen(string: str) -> int:
+    """ Return length of given string
+    >>> strlen('')
+    0
+    >>> strlen('abc')
+    3
+    1. Define the function `strlen` with a single parameter `string`, which is of type `str`.
+    2. Use the built-in `len` function to get the length of the input string.
+    3. Return the length of the input string as an integer value.
+    4. Test the function with two examples: an empty string and a non-empty string.
+    5. Use the `doctest` module to run the tests and verify that the function behaves correctly.
+    """
+    return len(string)
+
+--------------------------------------------------
+HumanEval/24
+
+def largest_divisor(n: int) -> int:
+    max_divisor = 1
+    for i in range(2, n//2 + 1):
+        if n % i == 0:
+            max_divisor = i
+    return max_divisor
+
+--------------------------------------------------
+HumanEval/25
+
+def factorize(n: int) -> List[int]:
+    """
+    Return a list of prime factors of a given integer in the order from smallest to largest.
+    Each of the factors should be listed number of times corresponding to how many times it appears in the factorization.
+    Input number should be equal to the product of all factors.
+    """
+    if n <= 0:
+        return []
+    prime_factors = []
+    for i in range(2, int(n ** 0.5) + 1):
+        while n % i == 0:
+            prime_factors.append(i)
+            n //= i
+    if n > 1:
+        prime_factors.append(n)
+    return prime_factors
+
+--------------------------------------------------
+HumanEval/26
+
+def remove_duplicates(numbers):
+    unique_elements = []
+    for num in numbers:
+        if num not in unique_elements:
+            unique_elements.append(num)
+    return unique_elements
+
+--------------------------------------------------
+HumanEval/27
+
+def flip_case(string: str) -> str:
+    result = ""
+    for char in string:
+        if char.isupper():
+            result += char.lower()
+        elif char.islower():
+            result += char.upper()
+        else:
+            result += char
+    return result
+
+--------------------------------------------------
+HumanEval/28
+
+from typing import List
+
+def concatenate(strings: List[str]) -> str:
+    result = ""
+    for string in strings:
+        result += string
+    return result
+
+--------------------------------------------------
+HumanEval/29
+
+def filter_by_prefix(strings, prefix):
+    filtered_list = []
+    for string in strings:
+        if string.startswith(prefix):
+            filtered_list.append(string)
+    return filtered_list
+
+
+--------------------------------------------------
+HumanEval/30
+
+def get_positive(my_list):
+    return [x for x in my_list if x >= 0]
+
+--------------------------------------------------
+HumanEval/31
+
+def is_prime(n):
+    if n <= 1:
+        return False
+    for i in range(2, n):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/32
+
+def find_zero(xs: list):
+    assert len(xs) % 2 == 0 and xs[-1] != 0, "Invalid input"
+    x = random.uniform(-10, 10)
+    for _ in range(100):
+        p = poly(xs, x)
+        if abs(p) < 0.001:
+            return x
+        d = derivative(xs, x)
+        if d == 0:
+            break
+        x -= p / d
+    raise Exception("Failed to find zero")
+
+--------------------------------------------------
+HumanEval/33
+
+def sort_third(l):
+    l_new = []
+    for i, elem in enumerate(l):
+        if i % 3 != 0:
+            l_new.append(elem)
+        else:
+            l_sorted = sorted(l[i:])
+            l_new.extend(l_sorted)
+    return l_new
+
+--------------------------------------------------
+HumanEval/34
+
+def unique(my_list):
+    return sorted(set(my_list))
+
+--------------------------------------------------
+HumanEval/35
+
+def max_element(my_list):
+    max_value = my_list[0]
+    for i in range(1, len(my_list)):
+        if my_list[i] > max_value:
+            max_value = my_list[i]
+    return max_value
+
+--------------------------------------------------
+HumanEval/36
+
+def fizz_buzz(n: int) -> int:
+    count = 0
+    for i in range(1, n):
+        if i % 11 == 0 or i % 13 == 0:
+            if str(i).find('7') != -1:
+                count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/37
+
+def sort_even(my_list):
+    l = my_list[:]
+    for i in range(0, len(l), 2):
+        if l[i] > l[i+1]:
+            l[i], l[i+1] = l[i+1], l[i]
+    return l
+
+--------------------------------------------------
+HumanEval/38
+
+def decode_cyclic(s: str):
+    """
+    takes as input string encoded with encode_cyclic function. Returns decoded string.
+    1. Split the input string into groups of three characters each. If the length of the string is not divisible by 3, then add two empty strings at the end to make the last group have three elements.
+    2. For each group, cycle the elements in the group so that the first element becomes the third, the second element becomes the first, and the third element becomes the second. If the group has fewer than three elements, leave it unchanged.
+    3. Join all the groups together to form the decoded string.
+    """
+    # split string into groups of 3 characters each
+    groups = [s[(3 * i):min((3 * i + 3), len(s))] for i in range((len(s) + 2) // 3)]
+    # cycle elements in each group
+    groups = [(group[1:] + group[0]) if len(group) == 3 else group for group in groups]
+    return "".join(groups)
+
+--------------------------------------------------
+HumanEval/39
+
+def prime_fib(n: int) -> int:
+    """
+    Returns the n-th prime number in the Fibonacci sequence.
+    """
+    a, b = 0, 1
+    for _ in range(n):
+        a, b = b, a + b
+        if is_prime(b):
+            return b
+    raise ValueError("No prime Fibonacci number found for the given input")
+
+def is_prime(n: int) -> bool:
+    """
+    Returns True if n is prime, False otherwise.
+    """
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/40
+
+def triples_sum_to_zero(my_list):
+    found_triple = False
+    for i in range(len(my_list)):
+        for j in range(i+1, len(my_list)):
+            if my_list[i] + my_list[j] == 0:
+                found_triple = True
+                break
+    return found_triple
+
+--------------------------------------------------
+HumanEval/41
+
+def car_race_collision(n: int) -> int:
+    """
+    Imagine a road that's a perfectly straight infinitely long line.
+    n cars are driving left to right;  simultaneously, a different set of n cars
+    are driving right to left.   The two sets of cars start out being very far from
+    each other.  All cars move in the same speed.  Two cars are said to collide
+    when a car that's moving left to right hits a car that's moving right to left.
+    However, the cars are infinitely sturdy and strong; as a result, they continue moving
+    in their trajectory as if they did not collide.
+
+    This function outputs the number of such collisions.
+    1. Define two sets of cars, one driving left to right and the other driving right to left.
+    2. Initialize a variable to keep track of the number of collisions.
+    3. For each car in the left-to-right set, check if it has collided with any car in the right-to-left set.
+    4. If there is a collision, increment the collision counter by 1.
+    5. Repeat step 3 for all cars in both sets.
+    6. Return the value of the collision counter as the output of the function.
+
+--------------------------------------------------
+HumanEval/42
+
+def incr_list(l: list):
+    new_list = []
+    for i in l:
+        new_list.append(i+1)
+    return new_list
+
+--------------------------------------------------
+HumanEval/43
+
+def pairs_sum_to_zero(my_list):
+    unique_elements = set()
+    for x in my_list:
+        if x not in unique_elements:
+            unique_elements.add(x)
+    for x in unique_elements:
+        if -x in unique_elements:
+            return True
+    return False
+
+--------------------------------------------------
+HumanEval/44
+
+def change_base(x: int, base: int):
+    """Change numerical base of input number x to base.
+    return string representation after the conversion.
+    base numbers are less than 10.
+    >>> change_base(8, 3)
+    '22'
+    >>> change_base(8, 2)
+    '1000'
+    >>> change_base(7, 2)
+    '111'
+    1. Check if the input number x and base are valid. If not, raise an error.
+    2. Convert the input number x to a string.
+    3. Initialize an empty list to store the digits of the converted number.
+    4. Loop through each digit of the converted number and perform the following steps:
+    a. Divide the digit by the base using integer division.
+    b. Get the remainder of the division.
+    c. Add the remainder to the list of digits.
+    5. Join the list of digits into a string and return it as the final result.
+    """
+    if not isinstance(x, int) or not isinstance(base, int):
+        raise ValueError("Inputs must be integers")
+    if base < 2 or base > 10:
+        raise ValueError("Base must be between 2 and 10
+
+--------------------------------------------------
+HumanEval/45
+
+def triangle_area(a, h):
+    return (a * h) / 2
+
+--------------------------------------------------
+HumanEval/46
+
+def fib4(n: int) -> int:
+    fib4_dict = {0: 0, 1: 0, 2: 2, 3: 0}
+    for i in range(4, n+1):
+        fib4_dict[i] = fib4_dict[i-1] + fib4_dict[i-2] + fib4_dict[i-3] + fib4_dict[i-4]
+    return fib4_dict[n]
+
+--------------------------------------------------
+HumanEval/47
+
+def median(l: list):
+    """Return median of elements in the list l.
+    >>> median([3, 1, 2, 4, 5])
+    3
+    >>> median([-10, 4, 6, 1000, 10, 20])
+    15.0
+    1. Sort the input list `l` in ascending order.
+    2. If the length of the sorted list is odd, return the middle element of the list.
+    3. If the length of the sorted list is even, return the average of the two middle elements of the list.
+    4. Handle edge cases such as an empty input list or a list with only one element.
+    """
+    if not l:
+        return None
+    sorted_l = sorted(l)
+    length = len(sorted_l)
+    if length % 2 == 0:
+        middle_index = int(length / 2)
+        return (sorted_l[middle_index - 1] + sorted_l[middle_index]) / 2
+    else:
+        middle_index = int((length + 1) / 2)
+        return sorted_l[middle_index - 1]
+
+--------------------------------------------------
+HumanEval/48
+
+def is_palindrome(text: str) -> bool:
+    """
+    Checks if given string is a palindrome
+    >>> is_palindrome('')
+    True
+    >>> is_palindrome('aba')
+    True
+    >>> is_palindrome('aaaaa')
+    True
+    >>> is_palindrome('zbcd')
+    False
+    """
+    if len(text) <= 1:
+        return True
+    i, j = 0, len(text) - 1
+    while i < j:
+        if text[i] != text[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
+
+--------------------------------------------------
+HumanEval/49
+
+def modp(n: int, p: int) -> int:
+    """Return 2^n modulo p (be aware of numerics)."""
+    result = 1
+    for _ in range(n):
+        result *= 2
+    return result % p
+
+--------------------------------------------------
+HumanEval/50
+
+def decode_shift(s: str):
+    """
+    takes as input string encoded with encode_shift function. Returns decoded string.
+    1. Define a variable `decoded` and initialize it to an empty string.
+    2. Loop through each character in the input string `s`.
+    3. For each character, calculate its ASCII code using the `ord()` function.
+    4. Subtract 5 from the ASCII code to shift the character by -5 positions in the alphabet.
+    5. Use the modulo operator (`%`) to wrap around to the beginning of the alphabet if necessary (i.e., if the shifted ASCII code is less than the ASCII code for 'a').
+    6. Convert the shifted ASCII code back into a character using the `chr()` function.
+    7. Append the shifted character to the `decoded` string.
+    8. Return the decoded string.
+    """
+    decoded = ""
+    for ch in s:
+        ascii_code = ord(ch) - 5
+        if ascii_code < ord("a"):
+            ascii_code += 26
+        decoded += chr(ascii_code)
+    return decoded
+
+--------------------------------------------------
+HumanEval/51
+
+def remove_vowels(text):
+    result = ""
+    for char in text:
+        if char not in "aeiou":
+            result += char
+    return result
+
+--------------------------------------------------
+HumanEval/52
+
+def below_threshold(l: list, t: int) -> bool:
+    result = True
+    for element in l:
+        if element >= t:
+            result = False
+            break
+    return result
+
+--------------------------------------------------
+HumanEval/53
+
+def add(x: int, y: int) -> int:
+    """Add two numbers x and y
+    >>> add(2, 3)
+    5
+    >>> add(5, 7)
+    12
+    """
+    return x + y
+
+--------------------------------------------------
+HumanEval/54
+
+def same_chars(s0: str, s1: str) -> bool:
+    """
+    Check if two words have the same characters.
+    """
+    # Convert both strings to lowercase
+    s0 = s0.lower()
+    s1 = s1.lower()
+
+    # Create a set to store the unique characters of the first string
+    chars = set()
+
+    # Iterate through each character in the first string and add it to the set if it's not already present
+    for char in s0:
+        if char not in chars:
+            chars.add(char)
+
+    # Check if the second string contains all the characters in the set
+    return chars.issubset(s1)
+
+--------------------------------------------------
+HumanEval/55
+
+def fib(n: int) -> int:
+    """Return n-th Fibonacci number.
+    >>> fib(10)
+    55
+    >>> fib(1)
+    1
+    >>> fib(8)
+    21
+    1. Define the function `fib` with one parameter `n`, which is an integer.
+    2. Check if `n` is less than or equal to 0. If it is, return 0.
+    3. Initialize two variables `a` and `b` to 0 and 1, respectively. These will be used to store the previous two Fibonacci numbers.
+    4. Loop from 2 to `n`:
+    5. Return the final value of `b`, which will be the `n`-th Fibonacci number.
+    """
+    if n <= 0:
+        return 0
+    a, b = 0, 1
+    for i in range(2, n+1):
+        a, b = b, a + b
+    return b
+
+--------------------------------------------------
+HumanEval/56
+
+def correct_bracketing(brackets: str) -> bool:
+    """
+    Given a string of brackets, return whether or not they are properly balanced.
+    """
+    # Initialize a stack to keep track of the opening brackets
+    stack = []
+
+    # Iterate through each character in the input string
+    for char in brackets:
+        # If the current character is an opening bracket, push it onto the stack
+        if char == "<":
+            stack.append(char)
+        # If the current character is a closing bracket, pop the top element from the stack
+        elif char == ">":
+            if not stack:
+                return False
+            stack.pop()
+    
+    # After iterating through the entire input string, if the stack is not empty, return False
+    if stack:
+        return False
+    
+    # Otherwise, return True
+    return True
+
+--------------------------------------------------
+HumanEval/57
+
+def monotonic(l):
+    if len(l) < 2:
+        return True
+    increasing = False
+    decreasing = False
+    for i in range(1, len(l)):
+        if l[i] >= l[i-1]:
+            increasing = True
+        else:
+            decreasing = True
+    return increasing or decreasing
+
+--------------------------------------------------
+HumanEval/58
+
+def common(l1: list, l2: list):
+    result = set()
+    for elem in l1:
+        if elem in l2:
+            result.add(elem)
+    for elem in l2:
+        if elem in l1:
+            result.add(elem)
+    return sorted(list(result))
+
+--------------------------------------------------
+HumanEval/59
+
+def largest_prime_factor(n):
+    max_factor = 1
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            max_factor = i
+    return max_factor
+
+--------------------------------------------------
+HumanEval/60
+
+def sum_to_n(n: int) -> int:
+    result = 0
+    for i in range(1, n+1):
+        result += i
+    return result
+
+--------------------------------------------------
+HumanEval/61
+
+def correct_bracketing(brackets: str) -> bool:
+    """
+    Given a string of brackets, returns True if every opening bracket has a corresponding closing bracket.
+    """
+    stack = []
+    for char in brackets:
+        if char == "(":
+            stack.append(char)
+        elif char == ")":
+            if not stack:
+                return False
+            stack.pop()
+    return not stack
+
+--------------------------------------------------
+HumanEval/62
+
+def derivative(xs: list):
+    """ xs represent coefficients of a polynomial.
+    xs[0] + xs[1] * x + xs[2] * x^2 + ....
+     Return derivative of this polynomial in the same form.
+    >>> derivative([3, 1, 2, 4, 5])
+    [1, 4, 12, 20]
+    >>> derivative([1, 2, 3])
+    [2, 6]
+    1. Define a new list to store the coefficients of the derivative polynomial.
+    2. Iterate over the input list `xs`, starting from the second element (index 1).
+    3. For each element, multiply it by its index and add it to the corresponding element in the output list.
+    4. Return the output list.
+    """
+    result = [0] * len(xs)
+    for i in range(1, len(xs)):
+        result[i-1] = xs[i] * i
+    return result
+
+--------------------------------------------------
+HumanEval/63
+
+def fibfib(n: int) -> int:
+    """The FibFib number sequence is a sequence similar to the Fibbonacci sequnece that's defined as follows:
+    fibfib(0) == 0
+    fibfib(1) == 0
+    fibfib(2) == 1
+    fibfib(n) == fibfib(n-1) + fibfib(n-2) + fibfib(n-3).
+    Please write a function to efficiently compute the n-th element of the fibfib number sequence.
+    """
+    if n < 0:
+        raise ValueError("N must be non-negative")
+
+    if n <= 2:
+        return 0
+
+    a, b, c = 0, 0, 1
+    for i in range(3, n+1):
+        a, b, c = b, c, a + b + c
+
+    return c
+
+--------------------------------------------------
+HumanEval/64
+
+def vowels_count(word):
+    vowel_count = 0
+    for char in word:
+        if char in 'aeiou':
+            vowel_count += 1
+        elif char == 'y':
+            if word[-2] not in 'aeiou':
+                vowel_count += 1
+    return vowel_count
+
+--------------------------------------------------
+HumanEval/65
+
+def circular_shift(x, shift):
+    x_str = str(x)
+    x_len = len(x_str)
+    if shift > x_len:
+        return "".join(reversed(x_str))
+    else:
+        return x_str[x_len-shift:] + x_str[:x_len-shift]
+
+--------------------------------------------------
+HumanEval/66
+
+def digit_sum(s):
+    sum = 0
+    for char in s:
+        if char.isupper():
+            sum += ord(char)
+    return sum
+
+--------------------------------------------------
+HumanEval/67
+
+def fruit_distribution(s, n):
+    apples, oranges = map(int, s.split())
+    mangoes = n - apples - oranges
+    return max(mangoes, 0)
+
+--------------------------------------------------
+HumanEval/68
+
+def pluck(arr):
+    # Check if the input array is empty
+    if not arr:
+        return []
+    # Filter out odd values and find the smallest even value
+    smallest_even = next((x for x in arr if x % 2 == 0), None)
+    # If there are no even values, return an empty list
+    if smallest_even is None:
+        return []
+    # Find the index of the smallest even value
+    smallest_index = arr.index(smallest_even)
+    # Return the smallest even value and its index
+    return [smallest_even, smallest_index]
+
+--------------------------------------------------
+HumanEval/69
+
+def search(lst):
+    lst.sort(reverse=True)
+    frequency = {}
+    for i in lst:
+        if i not in frequency:
+            frequency[i] = 1
+        else:
+            frequency[i] += 1
+    for i in lst:
+        if frequency[i] >= i:
+            return i
+    return -1
+
+--------------------------------------------------
+HumanEval/70
+
+def strange_sort_list(my_list):
+    if not my_list:
+        return []
+    result = []
+    while my_list:
+        min_value = min(my_list)
+        max_value = max(my_list)
+        result.extend([min_value, max_value])
+        my_list.remove(min_value)
+        my_list.remove(max_value)
+    return result
+
+--------------------------------------------------
+HumanEval/71
+
+def triangle_area(a, b, c):
+    if a + b < c or a + c < b or b + c < a:
+        return -1
+    s = (a + b + c) / 2
+    area = sqrt(s * (s - a) * (s - b) * (s - c))
+    return round(area, 2)
+
+--------------------------------------------------
+HumanEval/72
+
+def will_it_fly(q, w):
+    # Check if the input list q is a palindromic list
+    if q != q[::-1]:
+        return False
+    # Calculate the sum of the elements in the list q
+    sum = 0
+    for i in q:
+        sum += i
+    # Compare the sum to the maximum possible weight w
+    if sum >= w:
+        return False
+    # Return True if the input list q is balanced and the sum of its elements is less than or equal to the maximum possible weight w
+    return True
+
+--------------------------------------------------
+HumanEval/73
+
+def smallest_change(arr):
+    min_changes = 0
+    if len(arr) <= 1:
+        return min_changes
+    left = 0
+    right = len(arr) - 1
+    while left < right:
+        if arr[left] != arr[right]:
+            min_changes += 1
+        left += 1
+        right -= 1
+    return min_changes
+
+--------------------------------------------------
+HumanEval/74
+
+def total_match(lst1, lst2):
+    total_chars1 = 0
+    for s in lst1:
+        total_chars1 += len(s)
+    total_chars2 = 0
+    for s in lst2:
+        total_chars2 += len(s)
+    if total_chars1 <= total_chars2:
+        return lst1
+    else:
+        return lst2
+
+--------------------------------------------------
+HumanEval/75
+
+def is_multiply_prime(a):
+    if a > 100:
+        return False
+    prime1 = 0
+    prime2 = 0
+    prime3 = 0
+    for i in range(2, int(a**0.5) + 1):
+        if is_prime(i):
+            prime1 = i
+            break
+    for j in range(2, int((a/prime1)**0.5) + 1):
+        if is_prime(j):
+            prime2 = j
+            break
+    prime3 = (a/prime1)/prime2
+    if prime3 % 1 == 0:
+        return True
+    else:
+        return False
+
+--------------------------------------------------
+HumanEval/76
+
+def is_simple_power(x, n):
+    return x == n**int(n)
+
+--------------------------------------------------
+HumanEval/77
+
+def iscube(a):
+    if a == 0 or a == 1:
+        return True
+    for n in range(2, int(a**0.5) + 1):
+        if a == n**3:
+            return True
+    return False
+
+--------------------------------------------------
+HumanEval/78
+
+def hex_key(num):
+    prime_hex_digits = ["2", "3", "5", "7", "B", "D"]
+    num = num.upper()
+    char_list = num.split()
+    count = 0
+    for char in char_list:
+        if char in prime_hex_digits:
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/79
+
+def decimal_to_binary(decimal):
+    binary = ""
+    while decimal > 0:
+        binary = str(decimal % 2) + binary
+        decimal //= 2
+    return "db" + binary + "db"
+
+--------------------------------------------------
+HumanEval/80
+
+def is_happy(s):
+    if len(s) < 3:
+        return False
+    count = 0
+    for i in range(1, len(s)):
+        if s[i] == s[i-1]:
+            count += 1
+        else:
+            count = 0
+    return count >= 3
+
+--------------------------------------------------
+HumanEval/81
+
+def numerical_letter_grade(grades):
+    gpa_to_letter_grade = {4.0: 'A+', 3.7: 'A', 3.3: 'A-', 3.0: 'B+', 2.7: 'B', 2.3: 'B-', 2.0: 'C+', 1.7: 'C', 1.3: 'C-', 1.0: 'D+', 0.7: 'D', 0.0: 'D-', 0.0: 'E'}
+    letter_grades = []
+    for gpa in grades:
+        for grade in gpa_to_letter_grade:
+            if gpa >= grade:
+                letter_grades.append(gpa_to_letter_grade[grade])
+                break
+        else:
+            letter_grades.append('E')
+    return letter_grades
+
+--------------------------------------------------
+HumanEval/82
+
+def prime_length(string):
+    if len(string) == 2 or len(string) == 3:
+        return True
+    for i in range(2, int(len(string) ** 0.5) + 1):
+        if len(string) % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/83
+
+def starts_one_ends(n):
+    count = 0
+    for digit in str(n):
+        if digit == '1':
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/84
+
+def solve(N):
+    # Convert the input integer N to its binary representation
+    binary_representation = bin(N)
+    
+    # Initialize a variable to store the sum
+    sum = 0
+    
+    # Loop through each digit of the binary representation
+    for digit in binary_representation:
+        # Convert the current digit to an integer
+        digit_int = int(digit)
+        
+        # Add the current digit to the sum
+        sum += digit_int
+    
+    # Return the sum as a string
+    return str(sum)
+
+--------------------------------------------------
+HumanEval/85
+
+def add(lst):
+    if not lst:
+        return "List must be non-empty"
+    result = 0
+    for i, x in enumerate(lst):
+        if i % 2 == 1 and x % 2 == 0:
+            result += x
+    return result
+
+--------------------------------------------------
+HumanEval/86
+
+def anti_shuffle(s):
+    words = s.split()
+    sorted_words = []
+    for word in words:
+        sorted_word = "".join(sorted(word))
+        sorted_words.append(sorted_word)
+    return " ".join(sorted_words)
+
+--------------------------------------------------
+HumanEval/87
+
+def get_row(lst, x):
+    """
+    You are given a 2 dimensional data, as a nested lists,
+    which is similar to matrix, however, unlike matrices,
+    each row may contain a different number of columns.
+    Given lst, and integer x, find integers x in the list,
+    and return list of tuples, [(x1, y1), (x2, y2) ...] such that
+    each tuple is a coordinate - (row, columns), starting with 0.
+    Sort coordinates initially by rows in ascending order.
+    Also, sort coordinates of the row by columns in descending order.
+    
+    Examples:
+    get_row([
+      [1,2,3,4,5,6],
+      [1,2,3,4,1,6],
+      [1,2,3,4,5,1]
+    ], 1) == [(0, 0), (1, 4), (1, 0), (2, 5), (2, 0)]
+    get_row([], 1) == []
+    get_row([[], [1], [1, 2, 3]], 3) == [(2, 2)]
+    
+    Example solution:
+    # iterate through each
+
+--------------------------------------------------
+HumanEval/88
+
+def sort_array(arr):
+    if not arr:
+        return []
+    if sum(arr[0], arr[-1]) % 2 == 1:
+        return sorted(arr)
+    else:
+        return sorted(arr, reverse=True)
+
+--------------------------------------------------
+HumanEval/89
+
+def encrypt(string):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    rotated_alphabet = alphabet[2:] + alphabet[:2]
+    encrypted_string = ''
+    for char in string:
+        if char in alphabet:
+            encrypted_string += rotated_alphabet[alphabet.index(char)]
+        else:
+            encrypted_string += char
+    return encrypted_string
+
+--------------------------------------------------
+HumanEval/90
+
+def next_smallest(lst):
+    sorted_list = sorted(lst)
+    smallest = sorted_list[0]
+    for i in range(1, len(sorted_list)):
+        if sorted_list[i] < smallest:
+            return sorted_list[i]
+    return None
+
+--------------------------------------------------
+HumanEval/91
+
+def is_bored(string):
+    count = 0
+    sentences = string.split(".")
+    for sentence in sentences:
+        words = sentence.split()
+        if words[0] == "I":
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/92
+
+def any_int(x, y, z):
+    if not all(isinstance(n, int) for n in [x, y, z]):
+        return False
+    sum = x + y
+    if z == sum or z == abs(sum):
+        return True
+    return False
+
+--------------------------------------------------
+HumanEval/93
+
+def encode(message):
+    encoded_message = ""
+    for char in message:
+        if char in "aeiouAEIOU":
+            encoded_message += chr(ord(char) + 2)
+        else:
+            encoded_message += char.swapcase()
+    return encoded_message
+
+--------------------------------------------------
+HumanEval/94
+
+def largest_prime_sum(lst):
+    # find the largest prime number in the list
+    largest_prime = None
+    for i in lst:
+        if is_prime(i) and (largest_prime is None or i > largest_prime):
+            largest_prime = i
+
+    # return the sum of its digits
+    if largest_prime is not None:
+        return sum(int(digit) for digit in str(largest_prime))
+    else:
+        return 0
+
+def is_prime(n):
+    # check if n is a prime number
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/95
+
+def check_dict_case(my_dict):
+    if not my_dict:
+        return False
+
+    lower_case = True
+    upper_case = True
+
+    for key in my_dict:
+        if not isinstance(key, str):
+            return False
+
+        if key.islower():
+            upper_case = False
+        elif key.isupper():
+            lower_case = False
+        else:
+            return False
+
+    if lower_case:
+        return True
+    elif upper_case:
+        return True
+    else:
+        return False
+
+--------------------------------------------------
+HumanEval/96
+
+def count_up_to(n):
+    """
+    Returns an array of the first n prime numbers that are less than n
+    """
+    prime_numbers = []
+    for i in range(2, n+1):
+        if is_prime(i):
+            prime_numbers.append(i)
+    return prime_numbers
+
+def is_prime(n):
+    """
+    Returns True if n is a prime number, False otherwise
+    """
+    if n <= 1:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/97
+
+def multiply(a, b):
+    unit_digit_a = a % 10
+    unit_digit_b = b % 10
+    return unit_digit_a * unit_digit_b
+
+--------------------------------------------------
+HumanEval/98
+
+def count_upper(s):
+    count = 0
+    for i, char in enumerate(s):
+        if char.isupper() and i % 2 == 0:
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/99
+
+def closest_integer(value):
+    value = float(value)
+    rounded = round(value)
+    if rounded == value:
+        return int(rounded)
+    elif abs(rounded - value) > 0.5:
+        return int(round(value))
+    else:
+        return int(value)
+
+--------------------------------------------------
+HumanEval/100
+
+def make_a_pile(n):
+    if n <= 0:
+        return "Error: n must be a positive integer."
+    stones = [n]
+    current_level = 1
+    while current_level < n:
+        if current_level % 2 == 1:
+            stones.append(current_level + 1)
+        else:
+            stones.append(current_level + 2)
+        current_level += 1
+    return stones
+
+--------------------------------------------------
+HumanEval/101
+
+def words_string(s):
+    return s.split(", ")
+
+--------------------------------------------------
+HumanEval/102
+
+def choose_num(x, y):
+    if x <= 0 or y <= 0:
+        return -1
+    for i in range(min(x, y), max(x, y) + 1):
+        if i % 2 == 0:
+            return i
+    return -1
+
+--------------------------------------------------
+HumanEval/103
+
+def rounded_avg(n, m):
+    if n > m:
+        return -1
+    avg = (n + m) / (m - n + 1)
+    rounded_avg = round(avg)
+    binary_rep = bin(rounded_avg)
+    return binary_rep
+
+--------------------------------------------------
+HumanEval/104
+
+def unique_digits(my_list):
+    unique_elements = []
+    for num in my_list:
+        if all(int(digit) % 2 for digit in str(num)):
+            unique_elements.append(num)
+    return sorted(unique_elements)
+
+--------------------------------------------------
+HumanEval/105
+
+def by_length(arr):
+    numbers = ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"]
+    result = []
+    for num in arr:
+        if num >= 1 and num <= 9:
+            result.append(numbers[num - 1])
+    return result
+
+--------------------------------------------------
+HumanEval/106
+
+def f(n):
+    result = []
+    for i in range(1, n+1):
+        if i % 2 == 0:
+            result.append(factorial(i))
+        else:
+            total = 0
+            for j in range(1, i+1):
+                total += j
+            result.append(total)
+    return result
+
+def factorial(n):
+    if n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+--------------------------------------------------
+HumanEval/107
+
+def is_palindrome(n):
+    return str(n) == str(n)[::-1]
+
+def even_odd_palindrome(n):
+    even_count = 0
+    odd_count = 0
+    for i in range(1, n+1):
+        if is_palindrome(i):
+            if i % 2 == 0:
+                even_count += 1
+            else:
+                odd_count += 1
+    return (even_count, odd_count)
+
+--------------------------------------------------
+HumanEval/108
+
+def count_nums(arr):
+    count = 0
+    for element in arr:
+        sum = abs(element) + (element < 0)
+        if sum > 0:
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/109
+
+def move_one_ball(arr):
+    if len(arr) == 0:
+        return True
+    else:
+        arr.sort()
+        for i in range(len(arr)-1):
+            if arr[i] == arr[i+1]:
+                return False
+        return True
+
+--------------------------------------------------
+HumanEval/110
+
+def exchange(lst1, lst2):
+    if all(x % 2 == 0 for x in lst1):
+        return "YES"
+    if not any(x % 2 == 0 for x in lst2):
+        return "NO"
+    while not all(x % 2 == 0 for x in lst1):
+        for i in range(len(lst1)):
+            if lst1[i] % 2 != 0:
+                for j in range(len(lst2)):
+                    if lst2[j] % 2 == 0:
+                        lst1[i], lst2[j] = lst2[j], lst1[i]
+                        break
+    return "YES" if all(x % 2 == 0 for x in lst1) else "NO"
+
+--------------------------------------------------
+HumanEval/111
+
+def histogram(string):
+    # Initialize an empty dictionary to store the letter counts
+    letter_counts = {}
+    
+    # Split the input string into individual letters using the space character as the delimiter
+    letters = string.split(' ')
+    
+    # Iterate over each letter and increment its count in the dictionary if it already exists, or set its count to 1 if it doesn't exist
+    for letter in letters:
+        if letter in letter_counts:
+            letter_counts[letter] += 1
+        else:
+            letter_counts[letter] = 1
+    
+    # Find the maximum occurrence of any letter by iterating over the dictionary values and keeping track of the highest value seen so far
+    max_occurrence = 0
+    for count in letter_counts.values():
+        if count > max_occurrence:
+            max_occurrence = count
+    
+    # If there are multiple letters with the same maximum occurrence, add them all to a list
+    letters_with_max_occurrence = []
+    for letter, count in letter_counts.items():
+        if count == max_occurrence:
+            letters_with_max_occurrence.append(letter)
+    
+    return letters_with_max_occurrence
+[/PY
+
+--------------------------------------------------
+HumanEval/112
+
+def reverse_delete(s, c):
+    result = ""
+    for char in s:
+        if char not in c:
+            result += char
+    return (result, result == result[::-1])
+
+--------------------------------------------------
+HumanEval/113
+
+def odd_count(my_list):
+    result = []
+    for s in my_list:
+        count = 0
+        for c in s:
+            if int(c) % 2 == 1:
+                count += 1
+        result.append(count)
+    return result
+
+--------------------------------------------------
+HumanEval/114
+
+def minSubArraySum(nums):
+    min_sum = float('inf')
+    for i in range(len(nums)):
+        curr_sum = 0
+        for j in range(i, len(nums)):
+            curr_sum += nums[j]
+            min_sum = min(min_sum, curr_sum)
+    return min_sum
+
+--------------------------------------------------
+HumanEval/115
+
+def max_fill(grid, capacity):
+    num_lowerings = 0
+    for row in grid:
+        for col in range(len(row)):
+            if row[col] == 1:
+                num_lowerings += min(capacity, row[col])
+                row[col] -= min(capacity, row[col])
+    return num_lowerings
+
+--------------------------------------------------
+HumanEval/116
+
+def sort_array(arr):
+    sorted_list = []
+    binary_list = []
+    for num in arr:
+        binary_list.append(bin(num))
+    sorted_binary_list = sorted(binary_list, key=lambda x: x.count('1'))
+    for binary_str in sorted_binary_list:
+        sorted_list.append(int(binary_str, 2))
+    return sorted_list
+
+--------------------------------------------------
+HumanEval/117
+
+def select_words(s, n):
+    if not s:
+        return []
+    words = s.split()
+    selected_words = []
+    for word in words:
+        if len([c for c in word if c.islower()]) == n:
+            selected_words.append(word)
+    return selected_words
+
+--------------------------------------------------
+HumanEval/118
+
+def get_closest_vowel(word):
+    vowels = "aeiou"
+    consonants = "bcdfghjklmnpqrstvwxyz"
+    for i in range(len(word)-1, 0, -1):
+        if word[i] in vowels:
+            if i != len(word)-1 and i != 0:
+                return word[i]
+        elif word[i] in consonants:
+            continue
+        else:
+            return ""
+    return ""
+
+--------------------------------------------------
+HumanEval/119
+
+def match_parens(string1, string2):
+    # Initialize a variable to keep track of the number of open parentheses
+    open_parens = 0
+    
+    # Loop through each character in the first string
+    for char in string1:
+        # If we encounter an open parenthesis, increase the count
+        if char == '(':
+            open_parens += 1
+        # If we encounter a close parenthesis, decrease the count
+        elif char == ')':
+            open_parens -= 1
+        # If the count is ever negative, return False
+        if open_parens < 0:
+            return False
+    
+    # Loop through each character in the second string
+    for char in string2:
+        # If we encounter an open parenthesis, increase the count
+        if char == '(':
+            open_parens += 1
+        # If we encounter a close parenthesis, decrease the count
+        elif char == ')':
+            open_parens -= 1
+        # If the count is ever negative, return False
+        if open_parens < 0:
+            return False
+    
+    # If the count is zero after looping through both strings, return True
+    if open_parens == 0:
+        return True
+
+--------------------------------------------------
+HumanEval/120
+
+def maximum(arr, k):
+    arr.sort(reverse=True)
+    return arr[:k]
+
+--------------------------------------------------
+HumanEval/121
+
+def solution(my_list):
+    sum = 0
+    for i in range(len(my_list)):
+        if i % 2 == 0:
+            sum += my_list[i]
+    return sum
+
+--------------------------------------------------
+HumanEval/122
+
+def add_elements(arr, k):
+    sum = 0
+    for i in range(k):
+        if len(str(arr[i])) <= 2:
+            sum += arr[i]
+    return sum
+
+--------------------------------------------------
+HumanEval/123
+
+def get_odd_collatz(n):
+    """
+    Given a positive integer n, return a sorted list that has the odd numbers in collatz sequence.
+
+    The Collatz conjecture is a conjecture in mathematics that concerns a sequence defined
+    as follows: start with any positive integer n. Then each term is obtained from the 
+    previous term as follows: if the previous term is even, the next term is one half of 
+    the previous term. If the previous term is odd, the next term is 3 times the previous
+    term plus 1. The conjecture is that no matter what value of n, the sequence will always reach 1.
+
+    Note: 
+        1. Collatz(1) is [1].
+        2. returned list sorted in increasing order.
+
+    For example:
+    get_odd_collatz(5) returns [1, 5] # The collatz sequence for 5 is [5, 16, 8, 4, 2, 1], so the odd numbers are only 1, and 5.
+    1. Define a function called `get_odd_collatz` that takes a positive integer `n` as input and returns a sorted list of odd numbers from the Collatz sequence starting at `n`.
+    2. Initialize an empty list
+
+--------------------------------------------------
+HumanEval/124
+
+def valid_date(date_string):
+    """
+    Returns True if the given date string is valid, and False otherwise.
+    """
+    # Check if the date string is empty or not
+    if not date_string:
+        return False
+
+    # Split the date string into three parts: month, day, and year
+    month, day, year = date_string.split('-')
+
+    # Check if the month is between 1 and 12 (inclusive)
+    if not 1 <= int(month) <= 12:
+        return False
+
+    # Check if the day is between 1 and the number of days in the given month
+    if not 1 <= int(day) <= days_in_month(int(month), int(year)):
+        return False
+
+    # Check if the year is valid (i.e. non-negative)
+    if int(year) < 0:
+        return False
+
+    # If all checks pass, return True
+    return True
+
+def days_in_month(month, year):
+    """
+    Returns the number of days in the given month.
+    """
+    if month in [1, 3, 5, 7, 8, 10, 12]:
+        return
+
+--------------------------------------------------
+HumanEval/125
+
+def split_words(txt):
+    if txt.isspace():
+        return txt.split()
+    elif ',' in txt:
+        return txt.split(',')
+    else:
+        count = 0
+        for char in txt:
+            if char.islower() and ord(char) % 2 == 1:
+                count += 1
+        return count
+
+--------------------------------------------------
+HumanEval/126
+
+def is_sorted(my_list):
+    if len(my_list) <= 1:
+        return True
+    prev = my_list[0]
+    curr = my_list[1]
+    for i in range(2, len(my_list)):
+        if my_list[i] <= curr:
+            return False
+        prev = curr
+        curr = my_list[i]
+    return curr > prev
+
+--------------------------------------------------
+HumanEval/127
+
+def intersection(interval1, interval2):
+    start = max(interval1[0], interval2[0])
+    end = min(interval1[1], interval2[1])
+    if start > end:
+        return "NO"
+    length = end - start + 1
+    if length == 1:
+        return "YES"
+    else:
+        for i in range(2, int(length ** 0.5) + 1):
+            if length % i == 0:
+                return "NO"
+        return "YES"
+
+--------------------------------------------------
+HumanEval/128
+
+def prod_signs(arr):
+    if not arr:
+        return None
+    product = 0
+    sum = 0
+    for num in arr:
+        if num > 0:
+            product += 1
+        elif num < 0:
+            product -= 1
+        sum += num * product
+    return sum
+
+--------------------------------------------------
+HumanEval/129
+
+def min_path(grid, k):
+    # Initialize the minimum path sum
+    min_sum = float('inf')
+    # Initialize the current sum
+    current_sum = 0
+    # Initialize the queue for BFS
+    queue = []
+    # Add the first cell to the queue
+    queue.append((0, 0))
+    # Loop until the queue is empty
+    while queue:
+        # Get the current cell from the queue
+        row, col = queue.pop(0)
+        # Increase the current sum by the value of the current cell
+        current_sum += grid[row][col]
+        # If the current sum is less than the minimum sum, update the minimum sum
+        if current_sum < min_sum:
+            min_sum = current_sum
+        # If the current cell is the last cell, return the minimum sum
+        if row == len(grid) - 1 and col == len(grid[0]) - 1:
+            return min_sum
+        # Add the neighboring cells to the queue
+        for r, c in [(row, col+1), (row, col-1), (row+1, col), (row-1, col)]:
+            if 0 <= r < len(grid) and 0 <= c < len
+
+--------------------------------------------------
+HumanEval/130
+
+def tribonacci_sequence(n):
+    if n == 0:
+        return []
+    elif n == 1:
+        return [1]
+    elif n == 2:
+        return [1, 3]
+    else:
+        seq = [1, 3]
+        for i in range(n-2):
+            seq.append(seq[i] + seq[i+1] + seq[i+2])
+        return seq
+
+--------------------------------------------------
+HumanEval/131
+
+def digits(n):
+    result = 0
+    for digit in str(n):
+        if int(digit) % 2 == 1:
+            result *= int(digit)
+    return result
+
+--------------------------------------------------
+HumanEval/132
+
+def is_nested(string):
+    '''
+    Create a function that takes a string as input which contains only square brackets.
+    The function should return True if and only if there is a valid subsequence of brackets 
+    where at least one bracket in the subsequence is nested.
+
+    is_nested('[[]]') ➞ True
+    is_nested('[]]]]]]][[[[[]') ➞ False
+    is_nested('[][]') ➞ False
+    is_nested('[]') ➞ False
+    is_nested('[[][]]') ➞ True
+    is_nested('[[]][[') ➞ True
+    1. Check if the input string contains only square brackets. If it doesn't, return False.
+    2. Initialize two variables, `open_brackets` and `closed_brackets`, both set to 0.
+    3. Iterate through each character in the input string.
+    4. If the current character is an opening bracket (`[`), increment `open_brackets`.
+    5. If the current character is a closing bracket (`]`), decrement `open_brackets` and increment `closed_brackets`.
+    6. If `open_brackets` is ever negative, return
+
+--------------------------------------------------
+HumanEval/133
+
+def sum_squares(lst):
+    rounded_list = []
+    for num in lst:
+        rounded_list.append(math.ceil(num))
+    return sum([i**2 for i in rounded_list])
+
+--------------------------------------------------
+HumanEval/134
+
+def check_if_last_char_is_a_letter(txt):
+    if not txt:
+        return False
+    last_char = txt[-1]
+    if not last_char.isalpha():
+        return False
+    words = txt.split()
+    if words[-1] != last_char:
+        return True
+    return False
+
+--------------------------------------------------
+HumanEval/135
+
+def can_arrange(arr):
+    largest_index = -1
+    for i in range(len(arr)):
+        if arr[i] < arr[i-1]:
+            largest_index = i
+    return largest_index
+
+--------------------------------------------------
+HumanEval/136
+
+def largest_smallest_integers(lst):
+    if len(lst) < 2:
+        return (None, None)
+    largest_negative = None
+    smallest_positive = None
+    for elem in lst:
+        if elem < 0 and (largest_negative is None or elem > largest_negative):
+            largest_negative = elem
+        elif elem > 0 and (smallest_positive is None or elem < smallest_positive):
+            smallest_positive = elem
+    return (largest_negative, smallest_positive)
+
+--------------------------------------------------
+HumanEval/137
+
+def compare_one(a, b):
+    """
+    Create a function that takes integers, floats, or strings representing real numbers, and returns the larger variable in its given variable type. Return None if the values are equal.
+    Note: If a real number is represented as a string, the floating point might be . or ,
+    """
+    # Check if both inputs are of the same type (integer, float, or string)
+    if type(a) != type(b):
+        return "Error: Input types do not match."
+    # Convert any string inputs to floats using the `float()` function
+    if isinstance(a, str):
+        try:
+            a = float(a)
+        except ValueError:
+            return "Error: Invalid input."
+    if isinstance(b, str):
+        try:
+            b = float(b)
+        except ValueError:
+            return "Error: Invalid input."
+    # Compare the two values and determine which one is larger
+    if a > b:
+        return a
+    elif b > a:
+        return b
+    else:
+        return None
+
+--------------------------------------------------
+HumanEval/138
+
+def is_equal_to_sum_even(n):
+    result = False
+    for i in range(2, n+1, 2):
+        for j in range(2, n+1, 2):
+            for k in range(2, n+1, 2):
+                for l in range(2, n+1, 2):
+                    if i + j + k + l == n:
+                        result = True
+                        break
+    return result
+
+--------------------------------------------------
+HumanEval/139
+
+def special_factorial(n):
+    result = 1
+    while n > 1:
+        result *= n
+        n -= 1
+    return result
+
+--------------------------------------------------
+HumanEval/140
+
+def fix_spaces(text):
+    modified_text = ""
+    for c in text:
+        if c == " ":
+            if text[text.index(c) + 1] == " ":
+                modified_text += "_"
+            else:
+                modified_text += "-"
+        else:
+            modified_text += c
+    return modified_text
+
+--------------------------------------------------
+HumanEval/141
+
+def file_name_check(file_name):
+    if len(file_name) > 3:
+        return "No"
+    if "." not in file_name:
+        return "No"
+    name, extension = file_name.split(".")
+    if not name[0].isalpha():
+        return "No"
+    if extension not in ["txt", "exe", "dll"]:
+        return "No"
+    return "Yes"
+
+--------------------------------------------------
+HumanEval/142
+
+def sum_squares(lst):
+    result = []
+    for i, v in enumerate(lst):
+        if i % 3 == 0:
+            result.append(v**2)
+        elif i % 4 == 0:
+            result.append(v**3)
+        else:
+            result.append(v)
+    return sum(result)
+
+--------------------------------------------------
+HumanEval/143
+
+def words_in_sentence(sentence):
+    result = []
+    for word in sentence.split():
+        if is_prime(len(word)):
+            result.append(word)
+    return " ".join(result)
+
+def is_prime(n):
+    if n == 1:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/144
+
+from fractions import Fraction
+import math
+
+def simplify(x, n):
+    try:
+        x = Fraction(x)
+        n = Fraction(n)
+        product = x * n
+        gcd = math.gcd(product.numerator, product.denominator)
+        return gcd == 1
+    except ValueError:
+        return False
+
+--------------------------------------------------
+HumanEval/145
+
+def order_by_points(numbers):
+    digit_sums = {}
+    for i, num in enumerate(numbers):
+        digit_sums[i] = sum(int(digit) for digit in str(num))
+    return [numbers[i] for i in sorted(digit_sums, key=digit_sums.get)]
+
+--------------------------------------------------
+HumanEval/146
+
+def specialFilter(nums):
+    count = 0
+    for num in nums:
+        if num > 10 and num % 10 == 1 and num // 10 % 10 == 1:
+            count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/147
+
+def get_max_triples(n):
+    a = []
+    for i in range(1, n+1):
+        a.append(i*i - i + 1)
+    count = 0
+    for i in range(len(a)):
+        for j in range(i+1, len(a)):
+            for k in range(j+1, len(a)):
+                if (a[i] + a[j] + a[k]) % 3 == 0:
+                    count += 1
+    return count
+
+--------------------------------------------------
+HumanEval/148
+
+def get_planets_between(planet1, planet2):
+    """
+    Returns a list of all the planets between planet1 and planet2, sorted by their proximity to the sun.
+    """
+    # Define a list of all the planets in our solar system, sorted by their proximity to the sun
+    planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
+    
+    # Check if planet1 and planet2 are valid planet names
+    if planet1 not in planets or planet2 not in planets:
+        return ()
+    
+    # Find the indices of planet1 and planet2 in the list of planets
+    idx1 = planets.index(planet1)
+    idx2 = planets.index(planet2)
+    
+    # Use the indices to extract all the planets between planet1 and planet2 from the list of planets
+    if idx1 < idx2:
+        return tuple(planets[idx1+1:idx2])
+    else:
+        return tuple(planets[idx2+1:idx1])
+
+--------------------------------------------------
+HumanEval/149
+
+def list_sort(my_list):
+    # Check if the input list contains any strings with odd lengths and remove them from the list
+    my_list = [word for word in my_list if len(word) % 2 == 0]
+    # Sort the remaining strings in ascending order by length
+    my_list.sort(key=len)
+    # If two strings have the same length, sort them alphabetically
+    my_list.sort()
+    return my_list
+
+--------------------------------------------------
+HumanEval/150
+
+def x_or_y(n, x, y):
+    if is_prime(n):
+        return x
+    else:
+        return y
+
+def is_prime(n):
+    if n < 2:
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+--------------------------------------------------
+HumanEval/151
+
+def double_the_difference(lst):
+    if len(lst) == 0:
+        return 0
+    sum = 0
+    for element in lst:
+        if element % 2 != 0 and isinstance(element, int) and element >= 0:
+            sum += element ** 2
+    return sum
+
+--------------------------------------------------
+HumanEval/152
+
+def compare(game, guess):
+    results = []
+    for i in range(len(game)):
+        if game[i] == guess[i]:
+            results.append(0)
+        else:
+            results.append(abs(game[i] - guess[i]))
+    return results
+
+--------------------------------------------------
+HumanEval/153
+
+def Strongest_Extension(class_name, extensions):
+    strongest_extension = ""
+    for extension in extensions:
+        cap = sum(1 for c in extension if c.isupper())
+        sm = sum(1 for c in extension if c.islower())
+        strength = cap - sm
+        if strength > strongest_extension:
+            strongest_extension = extension
+    return f"{class_name}.{strongest_extension}" if strongest_extension else ""
+
+--------------------------------------------------
+HumanEval/154
+
+def cycpattern_check(word1, word2):
+    # Initialize variables
+    word2_len = len(word2)
+    word1_len = len(word1)
+    i = 0
+
+    # Check if word2 is a substring of word1
+    if word2 in word1:
+        return True
+
+    # Rotate word2 by one character and check if it's a substring of word1
+    while i < word2_len:
+        word2 = word2[1:] + word2[0]
+        if word2 in word1:
+            return True
+        i += 1
+
+    # If none of the rotations are substrings, return False
+    return False
+
+--------------------------------------------------
+HumanEval/155
+
+def even_odd_count(num):
+    even_count = 0
+    odd_count = 0
+    for digit in str(num):
+        if int(digit) % 2 == 0:
+            even_count += 1
+        else:
+            odd_count += 1
+    return (even_count, odd_count)
+
+--------------------------------------------------
+HumanEval/156
+
+def int_to_mini_roman(number: int) -> str:
+    """
+    Given a positive integer, obtain its roman numeral equivalent as a string, and return it in lowercase.
+    Restrictions: 1 <= num <= 1000
+    """
+    # Define a dictionary to map each digit of the input number to its corresponding Roman numeral symbol
+    roman_numerals = {
+        '1': 'I',
+        '2': 'II',
+        '3': 'III',
+        '4': 'IV',
+        '5': 'V',
+        '6': 'VI',
+        '7': 'VII',
+        '8': 'VIII',
+        '9': 'IX',
+        '10': 'X'
+    }
+
+    # Convert the input number to a string using the `str()` function
+    number_str = str(number)
+
+    # Iterate over each character in the string representation of the input number, and for each character, use the dictionary created in step 1 to obtain its corresponding Roman numeral symbol
+    roman_numeral = ''
+    for char in number_str:
+        roman_numeral += roman_numerals[char]
+
+    # Concatenate all the Roman numeral symbols obtained in step
+
+--------------------------------------------------
+HumanEval/157
+
+def right_angle_triangle(a, b, c):
+    # Calculate the lengths of the sides using the Pythagorean theorem
+    hypotenuse = (a**2 + b**2)**0.5
+    
+    # Check if the length of the hypotenuse is equal to the sum of the lengths of the other two sides
+    if hypotenuse == c:
+        return True
+    else:
+        return False
+
+
+--------------------------------------------------
+HumanEval/158
+
+def find_max(words):
+    max_word = ""
+    for word in words:
+        if len(set(word)) > len(set(max_word)):
+            max_word = word
+        elif len(set(word)) == len(set(max_word)):
+            if word < max_word:
+                max_word = word
+    return max_word
+
+--------------------------------------------------
+HumanEval/159
+
+def eat(number, need, remaining):
+    if need > remaining:
+        return [number + need, 0]
+    else:
+        total = number + need
+        return [total, remaining - total]
+
+--------------------------------------------------
+HumanEval/160
+
+def do_algebra(operator, operand):
+    """
+    Given two lists operator, and operand. The first list has basic algebra operations, and 
+    the second list is a list of integers. Use the two given lists to build the algebric 
+    expression and return the evaluation of this expression.
+
+    The basic algebra operations:
+    Addition ( + ) 
+    Subtraction ( - ) 
+    Multiplication ( * ) 
+    Floor division ( // ) 
+    Exponentiation ( ** ) 
+
+    Example:
+    operator['+', '*', '-']
+    array = [2, 3, 4, 5]
+    result = 2 + 3 * 4 - 5
+    => result = 9
+
+    Note:
+        The length of operator list is equal to the length of operand list minus one.
+        Operand is a list of of non-negative integers.
+        Operator list has at least one operator, and operand list has at least two operands.
+
+    1. First, we need to check if the length of the operator list is equal to the length of the operand list minus one. If it's not, then we need to raise an error.
+    2. Next, we need to iterate through the
+
+--------------------------------------------------
+HumanEval/161
+
+def solve(s):
+    if not any(c.isalpha() for c in s):
+        return s[::-1]
+    return "".join(c.lower() if c.isupper() else c.upper() for c in s)
+
+--------------------------------------------------
+HumanEval/162
+
+def string_to_md5(text):
+    if not text:
+        return None
+    byte_array = bytes(text, 'utf-8')
+    hash_object = hashlib.md5(byte_array)
+    return hash_object.hexdigest()
+
+--------------------------------------------------
+HumanEval/163
+
+def generate_integers(a, b):
+    even_digits = []
+    for i in range(a, b+1):
+        if i % 2 == 0:
+            even_digits.append(i)
+    return sorted(even_digits)
+
+--------------------------------------------------
