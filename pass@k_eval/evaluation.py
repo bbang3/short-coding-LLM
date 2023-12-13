@@ -3,6 +3,7 @@ from typing import Union, List, Tuple, Dict
 import numpy as np
 import itertools
 from collections import defaultdict
+import re
 
 import utils
 from execution import execution_error_detect
@@ -49,6 +50,7 @@ def evaluate(
         results = defaultdict(list)
         errors = list()
         pass_at_k = defaultdict(float)
+        length = list()
 
         print("Finding Error in Samples...")
         for task_id in problems.keys():
@@ -65,6 +67,7 @@ def evaluate(
                 else:
                     errors.append(result["task_id"])  
             results[result["task_id"]].append(result["result"])
+            length.append(result["length"])
 
         print("Calculating the results...")
         total, correct = list(), list()
@@ -81,7 +84,6 @@ def evaluate(
             _correct = correct[indices]
             if _total.size==0 and _correct.size==0:
                 return f"number of all test cases are less then {_k}"
-            print(f"total {_k} in {len(_total)}")
             return estimate_pass_at_k(_total,_correct,_k).mean()
             
         if isinstance(k, int):
@@ -101,6 +103,7 @@ def evaluate(
                 int_error[head] = str(tmp)[1:]
 
             int_error["_number_of_id"] = len(int_error)
+            pass_at_k["mean_length"] = sum(length)/len(length)
             pass_at_k["error_ids"] = int_error
             utils.data_writer(pass_at_k, json_name)
-        return pass_at_k, errors
+        return pass_at_k, errors, sum(length)/len(length)
